@@ -15,15 +15,33 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 /* Custom Classes */
+.global__container {
+  @apply container max-w-7xl mx-auto px-4 sm:px-6 h-full;
+}
 .bg__overlay:after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   background: #000;
-  opacity: 0.5;
+  opacity: 0.7;
   width: 100%;
   height: 100%;
   z-index: 0;
+}
+.underline__effect {
+  @apply relative transition-all duration-300 ease-in-out before:content-[''] before:absolute before:-bottom-1 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-[3px] before:opacity-0 before:bg-brand-main before:transition-all before:duration-300 before:ease-in-out hover:before:w-full hover:before:opacity-100;
+}
+.underline__effect__active {
+  @apply relative transition-all duration-300 ease-in-out before:content-[''] before:absolute before:-bottom-1 before:left-1/2 before:-translate-x-1/2 before:h-[3px] before:bg-brand-main before:transition-all before:duration-300 before:ease-in-out before:w-full before:opacity-100;
+}
+
+/* Colored Text */
+.brand__red {
+  @apply text-brand-main;
 }

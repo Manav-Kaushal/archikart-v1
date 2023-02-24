@@ -21,8 +21,8 @@ const Banner = ({
   return (
     <div
       className={classNames(
-        "relative bg-no-repeat bg-cover bg-center flex items-center justify-center bg__overlay",
-        fullScreen ? "min-h-screen" : "min-h-[325px]"
+        "relative bg-no-repeat bg-cover bg-center flex items-center justify-center bg__overlay pt-[50px]", // pt-[50px] is given to accommodate the top space that header used
+        fullScreen ? "min-h-screen" : "min-h-[300px] md:min-h-[325px]"
       )}
       style={{
         backgroundImage: `url(${backgroundImage})`,
@@ -30,22 +30,24 @@ const Banner = ({
     >
       <div
         className={classNames(
-          "z-[2] text-white space-y-6",
+          "z-[2] text-white space-y-4",
           center ? "text-center" : null
         )}
       >
         <h1
           className={classNames(
-            "font-bold",
-            fullScreen ? "text-6xl" : "text-5xl"
+            "font-bold max-w-7xl",
+            fullScreen
+              ? "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+              : "text-3xl md:text-4xl lg:text-5xl"
           )}
         >
           {title}
         </h1>
         {description && (
-          <p className="text-lg max-w-xl mx-auto">{description}</p>
+          <p className="text-lg md:text-2xl max-w-xl mx-auto">{description}</p>
         )}
-        {children}
+        <div>{children}</div>
       </div>
     </div>
   );
