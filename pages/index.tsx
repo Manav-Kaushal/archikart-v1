@@ -8,7 +8,6 @@ const Home: NextPage = () => {
   return (
     <>
       <NextSeo title="Welcome" />
-      <Header />
       <Banner
         title="World's Biggest University"
         description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, iste. Nulla sunt vitae culpa, dolor placeat vero ab inventore. Quae?"
