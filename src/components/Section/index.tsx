@@ -5,7 +5,7 @@ type Props = {
 };
 
 const Section = ({ children }: Props) => {
-  return <div className="py-24">{children}</div>;
+  return <div className="py-24 global__container">{children}</div>;
 };
 
 export default Section;
