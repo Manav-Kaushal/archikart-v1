@@ -3,6 +3,7 @@ import React, { ButtonHTMLAttributes } from "react";
 
 type ButtonVariant = "regular" | "outline" | "ghost" | "link";
 type ButtonSize = "regular" | "large" | "small";
+type ButtonShapes = "regular" | "sharp" | "rounded";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -11,6 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   size?: ButtonSize;
   variant?: ButtonVariant;
+  shape?: ButtonShapes;
 }
 
 const Sizes = {
@@ -27,6 +29,12 @@ const Variants = {
   link: "text-brand-main hover:underline disabled:no-underline",
 };
 
+const Shapes = {
+  regular: "rounded-lg",
+  sharp: "rounded-none",
+  rounded: "rounded-full",
+};
+
 const Button: React.FC<ButtonProps> = ({
   onClick,
   children,
@@ -34,16 +42,18 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   size = "regular",
   variant = "regular",
+  shape = "regular",
   ...props
 }) => {
   return (
     <button
       className={classNames(
-        "relative h-fit w-fit rounded-lg transition-all duration-300 ease-in-out",
+        "relative h-fit w-fit transition-all duration-300 ease-in-out",
         "disabled:cursor-not-allowed disabled:opacity-50",
         sx,
         Sizes[size],
-        Variants[variant]
+        Variants[variant],
+        Shapes[shape]
       )}
       onClick={onClick}
       disabled={disabled}

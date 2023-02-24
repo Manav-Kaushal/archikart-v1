@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.12",
     "framer-motion": "^10.0.0",
     "next": "latest",
     "next-seo": "^5.15.0",
