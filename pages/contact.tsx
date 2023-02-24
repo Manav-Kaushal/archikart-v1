@@ -4,13 +4,13 @@ import React from "react";
 
 type Props = {};
 
-const About = (props: Props) => {
+const Contact = (props: Props) => {
   return (
     <>
-      <NextSeo title="About Us" />
-      <Banner title="About Us" />
+      <NextSeo title="Contact Us" />
+      <Banner title="Contact Us" />
     </>
   );
 };
 
-export default About;
+export default Contact;

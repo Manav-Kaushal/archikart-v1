@@ -11,7 +11,7 @@ export const navigation: Navigation[] = [
   //   route: BasicRoutesEnum.Home,
   // },
   {
-    title: "About Us",
+    title: "About",
     route: BasicRoutesEnum.AboutUs,
   },
   {
