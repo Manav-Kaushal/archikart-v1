@@ -1,5 +1,7 @@
 import Banner from "@components/Banner";
 import Button from "@components/Button";
+import Section from "@components/Section";
+import SectionTitle from "@components/SectionTitle";
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
 
@@ -22,6 +24,12 @@ const Home: NextPage = () => {
           </Button>
         </div>
       </Banner>
+      <Section>
+        <SectionTitle
+          title="Courses We Offer"
+          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi?"
+        />
+      </Section>
     </>
   );
 };
