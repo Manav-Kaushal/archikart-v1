@@ -19,6 +19,29 @@ body {
   overflow-x: hidden;
 }
 
+/* Custom Scrollbar */
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #f44336 #000000;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #f44336;
+  border-radius: 10px;
+  border: 3px solid #f44336;
+}
+
 /* Custom Classes */
 .global__container {
   @apply container max-w-7xl mx-auto px-4 sm:px-6 h-full;
