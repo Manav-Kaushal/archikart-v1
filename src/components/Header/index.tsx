@@ -3,7 +3,7 @@ import { classNames } from "@utils/helpers";
 import { navigation } from "@utils/mocks/navigation";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, Transition } from "@headlessui/react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,9 +14,29 @@ const Header = (props: Props) => {
   const router = useRouter();
   const { pathname } = router;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollPos, setScrollPos] = useState(0);
+  const [isShrunk, setIsShrunk] = useState(false);
+
+  const handleScroll = () => {
+    setScrollPos(window.pageYOffset);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsShrunk(scrollPos > 0);
+  }, [scrollPos]);
 
   return (
-    <header className="fixed bg-transparent top-0 left-0 w-full h-[100px] z-40 text-white">
+    <header
+      className={classNames(
+        "fixed  top-0 left-0 w-full z-40 text-white transition__300",
+        isShrunk ? "h-[70px] bg-black/95" : "h-[100px] bg-transparent"
+      )}
+    >
       <div className="global__container">
         <div className="flex items-center justify-between h-full">
           <div>
@@ -42,11 +62,11 @@ const Header = (props: Props) => {
                 ))}
               </div>
             </nav>
-            <button onClick={() => setMobileMenuOpen(true)}>
-              <Bars3Icon
-                className="block md:hidden w-8 h-8 focus:outline-none"
-                aria-hidden={true}
-              />
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="block md:hidden focus:outline-none"
+            >
+              <Bars3Icon className="w-8 h-8" aria-hidden={true} />
             </button>
           </div>
           {/* Mobile */}
@@ -61,15 +81,15 @@ const Header = (props: Props) => {
             <div className="flex items-center justify-end">
               <button
                 type="button"
-                className="rounded-md text-gray-700"
+                className="text-gray-700 rounded-md"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <XMarkIcon className="w-8 h-8 text-white outline-none" />
               </button>
             </div>
-            <div className="mt-6 flow-root">
+            <div className="flow-root mt-6">
               <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="space-y-6 py-6">
+                <div className="py-6 space-y-6">
                   {navigation.map((navItem) => (
                     <Link
                       key={navItem.title}
