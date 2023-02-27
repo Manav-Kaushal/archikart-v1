@@ -7,6 +7,7 @@ type Props = {
   description?: string | React.ReactNode;
   center?: boolean;
   backgroundImage?: string;
+  zeroPadding?: boolean;
   children?: React.ReactNode;
 };
 
@@ -16,13 +17,15 @@ const Banner = ({
   description = "",
   center = true,
   backgroundImage = "https://images.pexels.com/photos/262347/pexels-photo-262347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  zeroPadding = false,
   children,
 }: Props) => {
   return (
     <div
       className={classNames(
-        "relative bg-no-repeat bg-cover bg-center flex items-center justify-center bg__overlay pt-[50px]", // pt-[50px] is given to accommodate the top space that header used
-        fullScreen ? "min-h-screen" : "min-h-[300px] md:min-h-[325px]"
+        "relative bg-no-repeat bg-cover bg-center flex items-center justify-center bg__overlay", // pt-[50px] is given to accommodate the top space that header used
+        fullScreen ? "min-h-screen" : "min-h-[300px] md:min-h-[325px]",
+        zeroPadding ? "" : "pt-[50px]"
       )}
       style={{
         backgroundImage: `url(${backgroundImage})`,

@@ -1,7 +1,7 @@
 import { classNames } from "@utils/helpers";
 import React, { ButtonHTMLAttributes } from "react";
 
-type ButtonVariant = "regular" | "outline" | "ghost" | "link";
+type ButtonVariant = "regular" | "outline" | "ghost" | "link" | "outline-white";
 type ButtonSize = "regular" | "large" | "small";
 type ButtonShapes = "regular" | "sharp" | "rounded";
 
@@ -25,8 +25,10 @@ const Variants = {
   regular: "bg-brand-main text-white disabled:hover:bg-brand-main",
   outline:
     "border border-brand-main text-brand-main hover:border-brand-main-dark disabled:border-brand-main disabled:bg-transparent",
-  ghost: "text-brand-main  disabled:hover:bg-transparent",
+  ghost: "text-brand-main disabled:hover:bg-transparent",
   link: "text-brand-main hover:underline disabled:no-underline",
+  "outline-white":
+    "text-white border border-white hover:bg-brand-main hover:border-brand-main",
 };
 
 const Shapes = {
