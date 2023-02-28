@@ -1,4 +1,5 @@
 import Banner from "@components/Banner";
+import Breadcrumbs from "@components/Breadcrumbs";
 import { NextSeo } from "next-seo";
 import React from "react";
 
@@ -8,7 +9,9 @@ const Services = (props: Props) => {
   return (
     <>
       <NextSeo title="Services" />
-      <Banner title="Services" />
+      <Banner title="Services">
+        <Breadcrumbs />
+      </Banner>
     </>
   );
 };

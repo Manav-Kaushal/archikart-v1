@@ -1,4 +1,5 @@
 import Banner from "@components/Banner";
+import Breadcrumbs from "@components/Breadcrumbs";
 import Button from "@components/Button";
 import Section from "@components/Section";
 import SectionTitle from "@components/SectionTitle";
@@ -12,7 +13,9 @@ const About = (props: Props) => {
   return (
     <>
       <NextSeo title="About Us" />
-      <Banner title="About Us" />
+      <Banner title="About Us">
+        <Breadcrumbs />
+      </Banner>
       <Section>
         <div className="grid grid-cols-1 gap-16 md:grid-cols-2 place-items-center">
           <div>
