@@ -42,6 +42,7 @@ const Home: NextPage = () => {
         <SectionTitle
           title="Courses We Offer"
           description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi?"
+          center
         />
         <div className="grid gap-8 mt-12 md:grid-cols-3">
           {section2Data.map((data: section2DataType) => (
@@ -59,6 +60,7 @@ const Home: NextPage = () => {
         <SectionTitle
           title="Our Global Campuses"
           description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi?"
+          center
         />
         <div className="grid gap-8 mt-12 md:grid-cols-3">
           {section3Data.map((data: section3DataType) => (
@@ -76,6 +78,7 @@ const Home: NextPage = () => {
         <SectionTitle
           title="Our Facilities"
           description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas inventore sunt, nihil accusantium cupiditate maiores."
+          center
         />
         <div className="grid gap-12 mt-12 md:grid-cols-3">
           {section4Data.map((data: section4DataType) => (
@@ -119,6 +122,7 @@ const Home: NextPage = () => {
           title="Subscribe To Our Daily Newsletter"
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nemo delectus deleniti saepe sapiente et quisquam.
 Numquam adipisci harum hic ut, odit inventore similique incidunt?"
+          center
         />
         <div className="flex flex-col items-center justify-between max-w-lg mx-auto mt-12 sm:flex-row gap-y-4 sm:gap-x-6 sm:gap-y-0">
           <InputField
