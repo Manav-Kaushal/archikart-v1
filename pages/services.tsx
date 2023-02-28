@@ -9,7 +9,10 @@ const Services = (props: Props) => {
   return (
     <>
       <NextSeo title="Services" />
-      <Banner title="Services">
+      <Banner
+        title="Services"
+        backgroundImage="https://images.pexels.com/photos/1915906/pexels-photo-1915906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      >
         <Breadcrumbs />
       </Banner>
     </>

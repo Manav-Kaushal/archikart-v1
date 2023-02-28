@@ -48,7 +48,7 @@ const Banner = ({
           {title}
         </h1>
         {description && (
-          <p className="text-lg md:text-2xl max-w-xl mx-auto">{description}</p>
+          <p className="max-w-xl mx-auto text-lg md:text-2xl">{description}</p>
         )}
         <div>{children}</div>
       </div>
