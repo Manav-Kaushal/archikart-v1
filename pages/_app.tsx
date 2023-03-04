@@ -3,10 +3,18 @@ import type { AppProps } from "next/app";
 import SEO from "@utils/defaultSeo";
 import { DefaultSeo } from "next-seo";
 import Layout from "@components/Layout";
+import { ToastContainer, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
+      <ToastContainer
+        autoClose={2000}
+        transition={Slide}
+        position={"bottom-right"}
+        hideProgressBar
+      />
       <DefaultSeo {...SEO} />
       <Component {...pageProps} />
     </Layout>
