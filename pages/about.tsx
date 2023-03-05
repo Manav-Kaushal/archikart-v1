@@ -3,6 +3,7 @@ import Breadcrumbs from "@components/Breadcrumbs";
 import Button from "@components/Button";
 import Section from "@components/Section";
 import SectionTitle from "@components/SectionTitle";
+import { app } from "@utils/config";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import React from "react";
@@ -27,11 +28,19 @@ const About = (props: Props) => {
               sx="text-left"
             />
             <p className="mt-4 text-brand-grey">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum quam
-              vel accusamus odit deleniti sunt nemo neque omnis aliquam laborum
-              illum autem ut fugit iure quasi animi, libero quia ducimus alias,
-              corporis officia, earum dignissimos! Veniam dolorum tempora eum!
-              Sint, praesentium quam esse ex quos unde quas quo aliquam ratione!
+              At <span className="text-brand-main">{app.name}</span>, we believe
+              that great architecture has the power to transform spaces and
+              inspire lives. We are passionate about designing buildings that
+              not only meet the functional needs of our clients, but also create
+              a sense of place and community. With our team of skilled
+              architects, we bring together form, function, and beauty to create
+              buildings that stand the test of time.
+            </p>
+            <p className="mt-4 text-brand-grey">
+              Whether it's a residential, commercial, or public project, we are
+              committed to excellence and delivering exceptional results that
+              exceed our clients' expectations. Join us on a journey to
+              transform spaces and inspire lives with great architecture.
             </p>
             <Button
               variant="outline"

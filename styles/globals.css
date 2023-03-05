@@ -1,8 +1,9 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 * {
   margin: 0;
@@ -12,7 +13,7 @@
 
 html,
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 body {
@@ -24,7 +25,7 @@ body {
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #f44336 #000000;
+  scrollbar-color: #f75c03 #000000;
 }
 
 /* Chrome, Edge, and Safari */
@@ -37,9 +38,9 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #f44336;
+  background-color: #f75c03;
   border-radius: 10px;
-  border: 3px solid #f44336;
+  border: 3px solid #f75c03;
 }
 
 /* Utilities Classes */
@@ -52,7 +53,7 @@ body {
 
 /* Custom Classes */
 .global__container {
-  @apply container max-w-7xl mx-auto px-4 sm:px-6 h-full;
+  @apply container h-full px-4 mx-auto max-w-7xl sm:px-6;
 }
 .bg__overlay:after {
   content: "";
