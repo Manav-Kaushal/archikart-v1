@@ -39,7 +39,7 @@ const Banner = ({
       >
         <h1
           className={classNames(
-            "font-bold max-w-7xl",
+            "font-bold max-w-7xl capitalize",
             fullScreen
               ? "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
               : "text-3xl md:text-4xl lg:text-5xl"
