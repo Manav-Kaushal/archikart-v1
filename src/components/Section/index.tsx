@@ -4,11 +4,20 @@ import React from "react";
 type Props = {
   children: React.ReactNode;
   sx?: string;
+  noPadding?: boolean;
 };
 
-const Section = ({ children, sx = "" }: Props) => {
+const Section = ({ children, sx = "", noPadding = false }: Props) => {
   return (
-    <div className={classNames("py-24 global__container", sx)}>{children}</div>
+    <div
+      className={classNames(
+        "global__container",
+        sx,
+        noPadding ? "py-0" : "py-24"
+      )}
+    >
+      {children}
+    </div>
   );
 };
 

@@ -2,39 +2,71 @@ import { classNames, getCloudinaryImageUrl } from "@utils/helpers";
 import Image from "next/image";
 import React, { ReactNode } from "react";
 
-type CardProps = {
-  variant: "baseCard" | "fullImage" | "imageWithText" | "form";
+type BaseCardProps = {
+  variant: "baseCard";
+  title?: string;
+  description?: string;
+  children?: ReactNode;
+  sx?: string;
+};
+type FullImageProps = {
+  variant: "fullImage";
   title: string;
+  img: string;
+  sx?: string;
+};
+type ImageWithTextProps = {
+  variant: "imageWithText";
+  title?: string;
   description?: string;
   img?: string;
   sx?: string;
-  children?: ReactNode;
+};
+type FormProps = {
+  variant: "form";
+  children: ReactNode;
+  title?: string;
+  description?: string;
+  sx?: string;
 };
 
-const Card = ({
-  children,
-  variant,
-  title,
-  description,
-  img,
-  sx,
-}: CardProps) => {
+type CardProps =
+  | BaseCardProps
+  | FullImageProps
+  | ImageWithTextProps
+  | FormProps;
+
+const Card = ({ variant = "baseCard", sx = "", ...props }: CardProps) => {
   if (variant === "baseCard") {
+    const {
+      title = "",
+      description = "",
+      children = null,
+    } = props as BaseCardProps;
     return (
-      <div
-        className={classNames(
-          "p-4 bg-brand-main/5 shadow rounded-xl hover:shadow-xl transition duration-200 ease-in-out",
-          sx
-        )}
-      >
-        <h3 className="my-4 text-xl font-semibold text-center sm:text-lg">
-          {title}
-        </h3>
-        <p className="font-extralight text-brand-grey">{description}</p>
-      </div>
+      <>
+        <div
+          className={classNames(
+            "p-4 bg-brand-main/5 shadow rounded-xl hover:shadow-xl transition duration-200 ease-in-out",
+            sx
+          )}
+        >
+          {title && (
+            <h3 className="my-4 text-xl font-semibold text-center sm:text-lg">
+              {title}
+            </h3>
+          )}
+          {description && (
+            <p className="font-extralight text-brand-grey">{description}</p>
+          )}
+          {children && <div>{children}</div>}
+        </div>
+      </>
     );
   }
+
   if (variant === "fullImage") {
+    const { title, img } = props as FullImageProps;
     return (
       <div className="relative overflow-hidden transition-all duration-300 ease-in-out shadow group rounded-xl hover:shadow-xl">
         <div
@@ -56,7 +88,13 @@ const Card = ({
       </div>
     );
   }
+
   if (variant === "imageWithText") {
+    const {
+      title = "",
+      description = "",
+      img = "",
+    } = props as ImageWithTextProps;
     return (
       <div className="shadow group rounded-xl hover:shadow-xl transition__300">
         <div
@@ -78,7 +116,9 @@ const Card = ({
       </div>
     );
   }
+
   if (variant === "form") {
+    const { title = "", description = "", children } = props as FormProps;
     return (
       <div
         className={classNames(
@@ -86,14 +126,21 @@ const Card = ({
           sx
         )}
       >
-        <h3 className="text-3xl font-semibold capitalize text-brand-main">
-          {title}
-        </h3>
-        <p className="text-xl font-extralight text-brand-grey">{description}</p>
-        <>{children}</>
+        {title && (
+          <h3 className="text-3xl font-semibold capitalize text-brand-main">
+            {title}
+          </h3>
+        )}
+        {description && (
+          <p className="text-xl font-extralight text-brand-grey">
+            {description}
+          </p>
+        )}
+        <div>{children}</div>
       </div>
     );
   }
+
   return null;
 };
 

@@ -13,6 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   variant?: ButtonVariant;
   shape?: ButtonShapes;
+  center?: boolean;
 }
 
 const Sizes = {
@@ -45,6 +46,7 @@ const Button: React.FC<ButtonProps> = ({
   size = "regular",
   variant = "regular",
   shape = "regular",
+  center = false,
   ...props
 }) => {
   return (
@@ -53,6 +55,7 @@ const Button: React.FC<ButtonProps> = ({
         "relative h-fit w-fit transition-all duration-300 ease-in-out",
         "disabled:cursor-not-allowed disabled:opacity-50",
         sx,
+        center && "left-1/2 -translate-x-1/2",
         Sizes[size],
         Variants[variant],
         Shapes[shape]

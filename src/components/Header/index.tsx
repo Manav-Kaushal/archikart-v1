@@ -7,6 +7,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, Transition } from "@headlessui/react";
 import { motion, AnimatePresence } from "framer-motion";
+import useScroll from "@utils/hooks/useScroll";
 
 type Props = {};
 
@@ -14,21 +15,8 @@ const Header = (props: Props) => {
   const router = useRouter();
   const { pathname } = router;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrollPos, setScrollPos] = useState(0);
-  const [isShrunk, setIsShrunk] = useState(false);
 
-  const handleScroll = () => {
-    setScrollPos(window.pageYOffset);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setIsShrunk(scrollPos > 0);
-  }, [scrollPos]);
+  const { isShrunk } = useScroll();
 
   return (
     <header
