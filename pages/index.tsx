@@ -56,7 +56,7 @@ const Home: NextPage = () => {
         </div>
       </Section>
       {/* Section 3 */}
-      <Section>
+      <Section sx="bg-brand-main/10">
         <SectionTitle
           title="Our Global Campuses"
           description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi?"
@@ -126,10 +126,10 @@ Numquam adipisci harum hic ut, odit inventore similique incidunt?"
         />
         <div className="flex flex-col items-center justify-between max-w-lg mx-auto mt-12 sm:flex-row gap-y-4 sm:gap-x-6 sm:gap-y-0">
           <InputField
-            LeftIcon={EnvelopeIcon}
             type="text"
             placeholder="Enter email"
             shape="sharp"
+            LeftIcon={EnvelopeIcon}
           />
           <Button onClick={() => {}} variant="outline" shape="sharp">
             <span>Subscribe</span>

@@ -78,29 +78,54 @@ type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
 type Props = {
   variant?: "input" | "textarea";
   shape?: "regular" | "sharp";
+  LeftIcon?: any;
+  RightIcon?: any;
 } & InputProps &
   TextareaProps;
 
 const InputField: React.FC<Props> = ({
   variant = "input",
   shape = "regular",
+  LeftIcon = null,
+  RightIcon = null,
   ...props
 }) => {
   const baseClasses =
     "w-full px-4 py-2 bg-white border outline-none focus:ring-1 focus:ring-brand-main transition__300";
 
   const inputClasses = `${baseClasses} ${getShape[shape]} ${
-    variant === "input" ? "" : "resize-none h-32"
-  }`;
+    LeftIcon && "pl-10"
+  } ${RightIcon && "pr-10"} ${variant === "input" ? "" : "resize-none h-32"}`;
 
   const textareaClasses = `${baseClasses} ${getShape[shape]} ${
     variant === "textarea" ? "resize-none h-32" : ""
   }`;
 
+  const renderLeftIcon = (): React.ReactNode => {
+    if (!LeftIcon) return null;
+    return (
+      <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+        <LeftIcon className="w-5 h-5 text-gray-500" />
+      </span>
+    );
+  };
+  const renderRightIcon = (): React.ReactNode => {
+    if (!RightIcon) return null;
+    return (
+      <span className="absolute inset-y-0 right-0 flex items-center pr-2">
+        <RightIcon className="w-5 h-5 text-gray-500" />
+      </span>
+    );
+  };
+
   return (
     <>
       {variant === "input" ? (
-        <input className={inputClasses} {...props} />
+        <div className="relative w-full">
+          {renderLeftIcon()}
+          <input className={inputClasses} {...props} />
+          {renderRightIcon()}
+        </div>
       ) : (
         <div className="relative">
           <textarea className={textareaClasses} {...props} />
