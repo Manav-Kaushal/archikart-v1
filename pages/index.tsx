@@ -56,7 +56,7 @@ const Home: NextPage = () => {
         </div>
       </Section>
       {/* Section 3 */}
-      <Section sx="bg-brand-main/10">
+      <Section>
         <SectionTitle
           title="Our Global Campuses"
           description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi?"

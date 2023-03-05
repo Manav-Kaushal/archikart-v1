@@ -68,10 +68,10 @@ const Card = ({ variant = "baseCard", sx = "", ...props }: CardProps) => {
   if (variant === "fullImage") {
     const { title, img } = props as FullImageProps;
     return (
-      <div className="relative overflow-hidden transition-all duration-300 ease-in-out shadow group rounded-xl hover:shadow-xl">
+      <div className="relative overflow-hidden shadow transition__300 group rounded-xl hover:shadow-xl">
         <div
           className={classNames(
-            "relative rounded-xl hover:shadow-xl transition-all duration-300 ease-in-out min-h-[475px] cursor-pointer after:content-[''] after:bg-brand-dark after:absolute after:top-0 after:left-0 after:w-full after:h-full after:rounded-xl after:transition-all after:duration-300 after:ease-in-out after:opacity-0 hover:after:opacity-70",
+            "relative rounded-xl hover:shadow-xl transition__300 min-h-[475px] cursor-pointer after:content-[''] after:bg-brand-dark after:absolute after:top-0 after:left-0 after:w-full after:h-full after:rounded-xl after:transition-all after:duration-300 after:ease-in-out after:opacity-0 hover:after:opacity-70",
             sx
           )}
         >
@@ -82,7 +82,7 @@ const Card = ({ variant = "baseCard", sx = "", ...props }: CardProps) => {
             fill
           />
         </div>
-        <h4 className="uppercase text-white text-2xl absolute top-[110%] group-hover:top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 transition-all duration-300 ease-in-out">
+        <h4 className="uppercase text-white text-2xl absolute top-[110%] group-hover:top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 transition__300">
           {title}
         </h4>
       </div>
