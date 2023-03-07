@@ -10,7 +10,7 @@ type LogoProps = {
 };
 
 const Logo = ({
-  sx,
+  sx = "w-40 h-12",
   variant = "white",
   center = true,
   ...props

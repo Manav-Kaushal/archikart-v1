@@ -37,7 +37,7 @@ const Breadcrumbs = () => {
               <>
                 <Link
                   href={breadcrumb.href}
-                  className="capitalize hover:text-gray-500 transition__300"
+                  className="capitalize hover:text-brand-main transition__300"
                 >
                   {breadcrumb.label}
                 </Link>
