@@ -2,7 +2,7 @@ import { classNames } from "@utils/helpers";
 import React from "react";
 
 type Props = {
-  title: string | React.ReactNode;
+  title?: string | React.ReactNode;
   fullScreen?: boolean;
   description?: string | React.ReactNode;
   center?: boolean;
@@ -13,7 +13,7 @@ type Props = {
 
 const Banner = ({
   fullScreen = false,
-  title,
+  title = "",
   description = "",
   center = true,
   backgroundImage = "https://images.pexels.com/photos/262347/pexels-photo-262347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -23,7 +23,7 @@ const Banner = ({
   return (
     <div
       className={classNames(
-        "relative bg-no-repeat bg-cover bg-center flex items-center justify-center bg__overlay", // pt-[50px] is given to accommodate the top space that header used
+        "relative bg-no-repeat bg-cover bg-center flex items-center justify-center bg__overlay__70", // pt-[50px] is given to accommodate the top space that header used
         fullScreen ? "min-h-screen" : "min-h-[300px] md:min-h-[325px]",
         zeroPadding ? "" : "pt-[50px]"
       )}

@@ -115,120 +115,122 @@ const Portfolio = (props: Props) => {
       >
         <Breadcrumbs />
       </Banner>
-      <Section>
-        <div className="relative bg-white isolate ">
-          <div className="absolute inset-x-0 overflow-hidden -translate-y-1/2 top-1/2 -z-10 transform-gpu opacity-30 blur-3xl">
-            <svg
-              viewBox="0 0 1313 771"
-              aria-hidden="true"
-              className="ml-[max(50%,38rem)] w-[82.0625rem]"
-            >
-              <path
-                id="bc169a03-3518-42d4-ab1e-d3eadac65edc"
-                fill="url(#85a0eca5-25f1-4ab9-af84-4e2d8d9cdbf3)"
-                d="M360.508 589.796 231.671 770.522 0 498.159l360.508 91.637 232.034-325.485c1.485 150.396 51.235 393.965 238.354 165.069C1064.79 143.261 1002.42-107.094 1171.72 46.97c135.44 123.252 148.51 335.641 138.11 426.428L971.677 339.803l24.062 411.461-635.231-161.468Z"
-              />
-              <defs>
-                <linearGradient
-                  id="85a0eca5-25f1-4ab9-af84-4e2d8d9cdbf3"
-                  x1="1313.17"
-                  x2="-88.881"
-                  y1=".201"
-                  y2="539.417"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#9089FC" />
-                  <stop offset={1} stopColor="#FF80B5" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-          <div className="absolute inset-x-0 top-0 flex pt-32 overflow-hidden opacity-25 -z-10 transform-gpu blur-3xl sm:pt-40 xl:justify-end">
-            <svg
-              viewBox="0 0 1313 771"
-              aria-hidden="true"
-              className="ml-[-22rem] w-[82.0625rem] flex-none origin-top-right rotate-[30deg] xl:ml-0 xl:mr-[calc(50%-12rem)]"
-            >
-              <use href="#bc169a03-3518-42d4-ab1e-d3eadac65edc" />
-            </svg>
-          </div>
-          <SectionTitle
-            title="We have worked with thousands of amazing people"
-            center
-          />
-          <div className="px-6 mx-auto max-w-7xl lg:px-8">
-            <div className="grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 mx-auto mt-16 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
-              <figure className="hidden col-span-2 sm:block sm:rounded-2xl sm:bg-white sm:shadow-lg sm:ring-1 sm:ring-gray-900/5 xl:col-start-2 xl:row-end-1">
-                <blockquote className="p-12 text-xl font-semibold leading-8 tracking-tight text-gray-900">
-                  <p>{`“${featuredTestimonial.body}”`}</p>
-                </blockquote>
-                <figcaption className="flex items-center px-6 py-4 border-t gap-x-4 border-gray-900/10">
-                  <img
-                    className="flex-none w-10 h-10 rounded-full bg-gray-50"
-                    src={featuredTestimonial.author.imageUrl}
-                    alt=""
-                  />
-                  <div className="flex-auto">
-                    <div className="font-semibold">
-                      {featuredTestimonial.author.name}
+      <div className="section__card">
+        <Section>
+          <div className="relative bg-white isolate ">
+            <div className="absolute inset-x-0 overflow-hidden -translate-y-1/2 top-1/2 -z-10 transform-gpu opacity-30 blur-3xl">
+              <svg
+                viewBox="0 0 1313 771"
+                aria-hidden="true"
+                className="ml-[max(50%,38rem)] w-[82.0625rem]"
+              >
+                <path
+                  id="bc169a03-3518-42d4-ab1e-d3eadac65edc"
+                  fill="url(#85a0eca5-25f1-4ab9-af84-4e2d8d9cdbf3)"
+                  d="M360.508 589.796 231.671 770.522 0 498.159l360.508 91.637 232.034-325.485c1.485 150.396 51.235 393.965 238.354 165.069C1064.79 143.261 1002.42-107.094 1171.72 46.97c135.44 123.252 148.51 335.641 138.11 426.428L971.677 339.803l24.062 411.461-635.231-161.468Z"
+                />
+                <defs>
+                  <linearGradient
+                    id="85a0eca5-25f1-4ab9-af84-4e2d8d9cdbf3"
+                    x1="1313.17"
+                    x2="-88.881"
+                    y1=".201"
+                    y2="539.417"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#9089FC" />
+                    <stop offset={1} stopColor="#FF80B5" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div className="absolute inset-x-0 top-0 flex pt-32 overflow-hidden opacity-25 -z-10 transform-gpu blur-3xl sm:pt-40 xl:justify-end">
+              <svg
+                viewBox="0 0 1313 771"
+                aria-hidden="true"
+                className="ml-[-22rem] w-[82.0625rem] flex-none origin-top-right rotate-[30deg] xl:ml-0 xl:mr-[calc(50%-12rem)]"
+              >
+                <use href="#bc169a03-3518-42d4-ab1e-d3eadac65edc" />
+              </svg>
+            </div>
+            <SectionTitle
+              title="We have worked with thousands of amazing people"
+              center
+            />
+            <div className="px-6 mx-auto max-w-7xl lg:px-8">
+              <div className="grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 mx-auto mt-16 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
+                <figure className="hidden col-span-2 sm:block sm:rounded-2xl sm:bg-white sm:shadow-lg sm:ring-1 sm:ring-gray-900/5 xl:col-start-2 xl:row-end-1">
+                  <blockquote className="p-12 text-xl font-semibold leading-8 tracking-tight text-gray-900">
+                    <p>{`“${featuredTestimonial.body}”`}</p>
+                  </blockquote>
+                  <figcaption className="flex items-center px-6 py-4 border-t gap-x-4 border-gray-900/10">
+                    <img
+                      className="flex-none w-10 h-10 rounded-full bg-gray-50"
+                      src={featuredTestimonial.author.imageUrl}
+                      alt=""
+                    />
+                    <div className="flex-auto">
+                      <div className="font-semibold">
+                        {featuredTestimonial.author.name}
+                      </div>
+                      <div className="text-gray-600">{`@${featuredTestimonial.author.handle}`}</div>
                     </div>
-                    <div className="text-gray-600">{`@${featuredTestimonial.author.handle}`}</div>
-                  </div>
-                  <img
-                    className="flex-none w-auto h-10"
-                    src={featuredTestimonial.author.logoUrl}
-                    alt=""
-                  />
-                </figcaption>
-              </figure>
-              {testimonials.map((columnGroup, columnGroupIdx) => (
-                <div
-                  key={columnGroupIdx}
-                  className="space-y-8 xl:contents xl:space-y-0"
-                >
-                  {columnGroup.map((column, columnIdx) => (
-                    <div
-                      key={columnIdx}
-                      className={classNames(
-                        (columnGroupIdx === 0 && columnIdx === 0) ||
-                          (columnGroupIdx === testimonials.length - 1 &&
-                            columnIdx === columnGroup.length - 1)
-                          ? "xl:row-span-2"
-                          : "xl:row-start-1",
-                        "space-y-8"
-                      )}
-                    >
-                      {column.map((testimonial) => (
-                        <figure
-                          key={testimonial.author.handle}
-                          className="p-6 bg-white shadow-lg rounded-2xl ring-1 ring-gray-900/5"
-                        >
-                          <blockquote className="text-gray-900">
-                            <p>{`“${testimonial.body}”`}</p>
-                          </blockquote>
-                          <figcaption className="flex items-center mt-6 gap-x-4">
-                            <img
-                              className="w-10 h-10 rounded-full bg-gray-50"
-                              src={testimonial.author.imageUrl}
-                              alt=""
-                            />
-                            <div>
-                              <div className="font-semibold">
-                                {testimonial.author.name}
+                    <img
+                      className="flex-none w-auto h-10"
+                      src={featuredTestimonial.author.logoUrl}
+                      alt=""
+                    />
+                  </figcaption>
+                </figure>
+                {testimonials.map((columnGroup, columnGroupIdx) => (
+                  <div
+                    key={columnGroupIdx}
+                    className="space-y-8 xl:contents xl:space-y-0"
+                  >
+                    {columnGroup.map((column, columnIdx) => (
+                      <div
+                        key={columnIdx}
+                        className={classNames(
+                          (columnGroupIdx === 0 && columnIdx === 0) ||
+                            (columnGroupIdx === testimonials.length - 1 &&
+                              columnIdx === columnGroup.length - 1)
+                            ? "xl:row-span-2"
+                            : "xl:row-start-1",
+                          "space-y-8"
+                        )}
+                      >
+                        {column.map((testimonial) => (
+                          <figure
+                            key={testimonial.author.handle}
+                            className="p-6 bg-white shadow-lg rounded-2xl ring-1 ring-gray-900/5"
+                          >
+                            <blockquote className="text-gray-900">
+                              <p>{`“${testimonial.body}”`}</p>
+                            </blockquote>
+                            <figcaption className="flex items-center mt-6 gap-x-4">
+                              <img
+                                className="w-10 h-10 rounded-full bg-gray-50"
+                                src={testimonial.author.imageUrl}
+                                alt=""
+                              />
+                              <div>
+                                <div className="font-semibold">
+                                  {testimonial.author.name}
+                                </div>
+                                <div className="text-gray-600">{`@${testimonial.author.handle}`}</div>
                               </div>
-                              <div className="text-gray-600">{`@${testimonial.author.handle}`}</div>
-                            </div>
-                          </figcaption>
-                        </figure>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              ))}
+                            </figcaption>
+                          </figure>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </Section>
+        </Section>
+      </div>
     </>
   );
 };
