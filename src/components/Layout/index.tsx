@@ -4,6 +4,7 @@ import Header from "@components/Header";
 import { ArrowSmallUpIcon } from "@heroicons/react/24/outline";
 import { classNames } from "@utils/helpers";
 import useScroll from "@utils/hooks/useScroll";
+import { useRouter } from "next/router";
 import React from "react";
 
 type Props = {
@@ -11,6 +12,7 @@ type Props = {
 };
 
 const Layout = ({ children }: Props) => {
+  const router = useRouter();
   const { isShrunk } = useScroll();
 
   const handleClick = () => {
@@ -22,9 +24,9 @@ const Layout = ({ children }: Props) => {
 
   return (
     <>
-      <Header />
+      {!router.pathname.includes("/studio") && <Header />}
       {children}
-      <Footer />
+      {!router.pathname.includes("/studio") && <Footer />}
       <button
         className={classNames(
           "fixed bottom-6 right-6 transition__300 text-brand-main border border-brand-main hover:text-white hover:border-brand-main hover:bg-brand-main p-1",
