@@ -14,7 +14,7 @@ const BlogList = ({ posts }: Props) => {
   return (
     <div>
       {posts.map((post) => (
-        <BlogCard data={post} />
+        <BlogCard key={post._id} data={post} />
       ))}
     </div>
   );

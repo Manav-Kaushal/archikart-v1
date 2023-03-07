@@ -20,7 +20,9 @@ type Props = {
 
 const SinglePost = ({ post }: Props) => {
   const router = useRouter();
-
+  if (!post) {
+    return <>Loading...</>;
+  }
   return (
     <>
       <NextSeo title={capitalize(post.title)} />
