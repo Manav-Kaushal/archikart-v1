@@ -69,11 +69,11 @@ const SinglePost = ({ post }: Props) => {
             </Button>
           </div>
           <article className="space-y-2">
-            <div className="relative flex flex-col justify-between min-h-56 md:flex-row">
+            <div className="relative flex flex-col justify-between min-h-56 ">
               <section className="pt-6 md:pt-12 md:px-6">
                 <div className="pb-10">
                   <Chip type="secondary" label={post.category.title} />
-                  <h1 className="mt-4 mb-1 text-3xl font-extrabold md:text-4xl">
+                  <h1 className="mt-4 mb-1 text-3xl font-extrabold capitalize md:text-4xl">
                     {post.title}
                   </h1>
                   <div className="flex flex-col text-base md:space-x-2 md:flex-row text-brand-grey">
@@ -110,7 +110,7 @@ const SinglePost = ({ post }: Props) => {
                 <div>
                   <h2 className="pt-10 italic">{post.description}</h2>
                 </div> */}
-                <div className="mb-10 relative w-full aspect-[16/9] md:aspect-[2/0.5] rounded-xl shadow">
+                <div className="mb-10 relative w-full aspect-[16/9] md:aspect-[2/0.5] rounded-xl shadow mx-auto">
                   <Image
                     src={sanityImageToUrl(post.mainImage).url()}
                     alt={post.title}
@@ -160,8 +160,7 @@ export async function getStaticProps({ params }: any) {
   `;
   const post = await client.fetch(query, { slug: params.slug });
 
-  // Pass post data to the page via props
-  return { props: { post } };
+  return { props: { post }, revalidate: 10 };
 }
 
 export default SinglePost;

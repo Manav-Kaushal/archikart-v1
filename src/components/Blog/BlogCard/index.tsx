@@ -54,7 +54,7 @@ const BlogCard = ({ data }: Props) => {
             />
           </div>
           <div className="relative max-w-xl">
-            <h3 className="mt-3 text-2xl font-semibold leading-6 text-gray-800 group-hover:text-brand-main transition__300">
+            <h3 className="mt-3 text-2xl font-semibold leading-6 text-gray-800 capitalize group-hover:text-brand-main transition__300">
               <span className="absolute inset-0" />
               {data.title}
             </h3>

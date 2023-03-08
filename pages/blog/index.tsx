@@ -57,7 +57,7 @@ const Blog = ({ preview, posts, categories }: any) => {
           </Button>
         </Banner>
         <Section>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-4">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
             <div className="space-y-20 md:col-span-3 lg:space-y-16">
               <PreviewSuspense
                 fallback={
