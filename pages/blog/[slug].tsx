@@ -22,6 +22,7 @@ import { MetaTag } from "next-seo/lib/types";
 import { app } from "@utils/config";
 import Chip from "@components/Chip";
 import TextWithIcon from "@components/TextWithIcon";
+import Section from "@components/Section";
 
 type Props = {
   post: Post;
@@ -52,10 +53,10 @@ const SinglePost = ({ post }: Props) => {
       <Banner backgroundImage="https://images.pexels.com/photos/1915906/pexels-photo-1915906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
       <section className="bg-gray-100">
         <motion.div
-          initial={{  y: 20 }}
-          animate={{  y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.3 }}
-          className="relative z-10 px-10 -mt-24 bg-white global__container pb-28 rounded-t-xl"
+          className="relative z-10 pb-16 -mt-24 bg-white rounded-t-xl global__container"
         >
           <div className="absolute left-0 ml-4 md:ml-0 -top-12">
             <Button
@@ -69,7 +70,7 @@ const SinglePost = ({ post }: Props) => {
           </div>
           <article className="space-y-2">
             <div className="relative flex flex-col justify-between min-h-56 md:flex-row">
-              <section className="w-full p-5">
+              <section className="pt-6 md:pt-12 md:px-6">
                 <div className="pb-10">
                   <Chip type="secondary" label={post.category.title} />
                   <h1 className="mt-4 mb-1 text-3xl font-extrabold md:text-4xl">
