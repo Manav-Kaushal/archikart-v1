@@ -12,7 +12,7 @@ type Props = {
 
 const BlogList = ({ posts }: Props) => {
   return (
-    <div>
+    <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
       {posts.map((post) => (
         <BlogCard key={post._id} data={post} />
       ))}

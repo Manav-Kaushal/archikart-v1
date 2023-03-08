@@ -9,7 +9,7 @@ export type Base = {
 export interface Post extends Base {
   author: Author;
   body: Block[];
-  categories: Category[];
+  category: Category;
   mainImage: Image;
   slug: Slug;
   title: string;
@@ -25,6 +25,7 @@ export interface Author extends Base {
   image: Image;
   name: string;
   slug: Slug;
+  role: Role;
 }
 
 export interface Image {
@@ -57,7 +58,12 @@ export interface Span {
   text: string;
 }
 
+export interface Role extends Base {
+  _type: "role";
+  title: string;
+}
 export interface Category extends Base {
+  type: "category";
   description: string;
   title: string;
 }

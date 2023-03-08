@@ -9,12 +9,19 @@ import Banner from "@components/Banner";
 import { capitalize } from "@utils/helpers";
 import Button from "@components/Button";
 import { useRouter } from "next/router";
-import { ArrowUturnLeftIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowUturnLeftIcon,
+  CalendarIcon,
+  ClockIcon,
+  UserIcon,
+} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import sanityImageToUrl from "@utils/sanity/sanityImageToUrl";
 import { motion } from "framer-motion";
 import { MetaTag } from "next-seo/lib/types";
 import { app } from "@utils/config";
+import Chip from "@components/Chip";
+import TextWithIcon from "@components/TextWithIcon";
 
 type Props = {
   post: Post;
@@ -51,7 +58,7 @@ const SinglePost = ({ post }: Props) => {
           transition={{ duration: 0.3 }}
           className="relative z-10 px-10 -mt-24 bg-white global__container pb-28 rounded-t-xl"
         >
-          <div className="absolute left-0 -top-12">
+          <div className="absolute left-0 ml-4 md:ml-0 -top-12">
             <Button
               onClick={() => router.push("/blog")}
               sx="flex items-center space-x-2"
@@ -65,35 +72,45 @@ const SinglePost = ({ post }: Props) => {
             <div className="relative flex flex-col justify-between min-h-56 md:flex-row">
               <section className="w-full p-5">
                 <div className="pb-10">
-                  {post.categories.map((category) => (
-                    <p
-                      key={category._id}
-                      className="px-3 py-1 mt-4 text-xs font-semibold text-white bg-gray-800 rounded-full w-fit"
-                    >
-                      {category.title}
-                    </p>
-                  ))}
-                  <h1 className="mt-4 mb-1 text-4xl font-extrabold">
+                  <Chip type="secondary" label={post.category.title} />
+                  <h1 className="mt-4 mb-1 text-3xl font-extrabold md:text-4xl">
                     {post.title}
                   </h1>
-                  <div className="flex space-x-2 text-base text-brand-grey">
-                    <p>
-                      {new Date(post._createdAt).toLocaleDateString("en-US", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}
-                    </p>
-                    <span>|</span> <p>{post.author.name}</p>
-                    <span>|</span>
-                    <p>{post.readingTime} mins</p>
+                  <div className="flex flex-col text-base md:space-x-2 md:flex-row text-brand-grey">
+                    <div className="flex items-center space-x-2">
+                      <TextWithIcon
+                        leftIcon={<CalendarIcon className="w-5 h-5" />}
+                        content={
+                          <span>
+                            {new Date(post._createdAt).toLocaleDateString(
+                              "en-US",
+                              {
+                                day: "numeric",
+                                month: "long",
+                                year: "numeric",
+                              }
+                            )}
+                          </span>
+                        }
+                      />
+                      <span>|</span>
+                      <TextWithIcon
+                        leftIcon={<ClockIcon className="w-5 h-5" />}
+                        content={<span>{post.readingTime} mins</span>}
+                      />
+                    </div>
+                    <span className="hidden md:inline-block">|</span>
+                    <TextWithIcon
+                      leftIcon={<UserIcon className="w-5 h-5" />}
+                      content={<span>{post.author.name}</span>}
+                    />
                   </div>
                 </div>
                 {/* 
                 <div>
                   <h2 className="pt-10 italic">{post.description}</h2>
                 </div> */}
-                <div className="mb-10 relative w-full aspect-[2/0.5] rounded-xl shadow">
+                <div className="mb-10 relative w-full aspect-[16/9] md:aspect-[2/0.5] rounded-xl shadow">
                   <Image
                     src={sanityImageToUrl(post.mainImage).url()}
                     alt={post.title}
@@ -134,8 +151,11 @@ export async function getStaticProps({ params }: any) {
     *[_type=='post' && slug.current == $slug][0]
     {
       ...,
-      author->,
-      categories[]->
+      author->{
+        ...,
+        role->,
+      },
+      category->
     }
   `;
   const post = await client.fetch(query, { slug: params.slug });

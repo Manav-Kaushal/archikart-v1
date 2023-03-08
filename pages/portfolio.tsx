@@ -117,7 +117,7 @@ const Portfolio = (props: Props) => {
       </Banner>
       <div className="section__card">
         <Section>
-          <div className="relative bg-white isolate ">
+          <div className="relative bg-white isolate">
             <div className="absolute inset-x-0 overflow-hidden -translate-y-1/2 top-1/2 -z-10 transform-gpu opacity-30 blur-3xl">
               <svg
                 viewBox="0 0 1313 771"

@@ -57,7 +57,7 @@ const Card = ({ variant = "baseCard", sx = "", ...props }: CardProps) => {
             </h3>
           )}
           {description && (
-            <p className="font-extralight text-brand-grey">{description}</p>
+            <p className="font-light text-brand-grey">{description}</p>
           )}
           {children && <div>{children}</div>}
         </div>
@@ -111,7 +111,7 @@ const Card = ({ variant = "baseCard", sx = "", ...props }: CardProps) => {
           <h3 className="mt-2 mb-4 text-xl font-semibold cursor-pointer sm:text-lg group-hover:text-brand-main transition__300">
             {title}
           </h3>
-          <p className="font-extralight text-brand-grey">{description}</p>
+          <p className="font-light text-brand-grey">{description}</p>
         </div>
       </div>
     );
@@ -132,9 +132,7 @@ const Card = ({ variant = "baseCard", sx = "", ...props }: CardProps) => {
           </h3>
         )}
         {description && (
-          <p className="text-xl font-extralight text-brand-grey">
-            {description}
-          </p>
+          <p className="text-xl font-light text-brand-grey">{description}</p>
         )}
         <div>{children}</div>
       </div>

@@ -2,7 +2,7 @@ import Banner from "@components/Banner";
 import Breadcrumbs from "@components/Breadcrumbs";
 import Section from "@components/Section";
 import { NextSeo } from "next-seo";
-import React from "react";
+import React, { useEffect } from "react";
 import { client } from "@utils/sanity/sanity.client";
 import { PreviewSuspense } from "next-sanity/preview";
 import { groq } from "next-sanity";
@@ -12,16 +12,38 @@ import { useRouter } from "next/router";
 import BlogSidebar from "@components/Blog/BlogSidebar";
 import Button from "@components/Button";
 import { app } from "@utils/config";
+import { Category, Post } from "@utils/types/blog";
 
-export const query = groq`
+type Props = {
+  preview: boolean;
+  posts: Post[];
+  categories: Category[];
+};
+
+const query = groq`
 *[_type=='post']{
   ...,
-  author->,
-  categories[]->
-} | order(_createdAt desc)`;
+  author->{
+    ...,
+    role->,
+  },
+  category->
+} | order(_createdAt desc)
+`;
+const catQuery = groq`
+*[_type=='category']
+`;
 
-const Blog = ({ preview, posts }: any) => {
+const Blog = ({ preview, posts, categories }: any) => {
   const router = useRouter();
+  function groupArrayByKey(arr: any, key: string) {
+    return arr.reduce((result: any, obj: any) => {
+      const value = obj[key];
+      result[value] = result[value] || [];
+      result[value].push(obj);
+      return result;
+    }, {});
+  }
 
   if (preview) {
     return (
@@ -54,7 +76,7 @@ const Blog = ({ preview, posts }: any) => {
               </PreviewSuspense>
             </div>
             <aside>
-              <BlogSidebar />
+              <BlogSidebar categories={categories} />
             </aside>
           </div>
         </Section>
@@ -73,12 +95,12 @@ const Blog = ({ preview, posts }: any) => {
       </Banner>
       <div className="section__card">
         <Section>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-4">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
             <div className="space-y-20 md:col-span-3 lg:space-y-16">
               <BlogList posts={posts} />
             </div>
             <aside>
-              <BlogSidebar />
+              <BlogSidebar categories={categories} />
             </aside>
           </div>
         </Section>
@@ -92,9 +114,14 @@ export const getStaticProps = async ({ preview = false }) => {
     return { props: { preview } };
   }
 
-  const posts = await client.fetch(query);
+  const data: Post[] = await client.fetch(query);
+  const posts = data.map((post: Post) => {
+    return { ...post, categoryTitle: post.category.title };
+  });
 
-  return { props: { preview, posts } };
+  const categories: Category[] = await client.fetch(catQuery);
+
+  return { props: { preview, posts, categories } };
 };
 
 export default Blog;

@@ -1,3 +1,6 @@
+import Chip from "@components/Chip";
+import TextWithIcon from "@components/TextWithIcon";
+import { CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
 import sanityImageToUrl from "@utils/sanity/sanityImageToUrl";
 import { Post } from "@utils/types/blog";
 import Image from "next/image";
@@ -13,53 +16,68 @@ const BlogCard = ({ data }: Props) => {
     <Link href={`/blog/${data.slug.current}`}>
       <article
         key={data._id}
-        className="relative flex flex-col gap-4 cursor-pointer group sm:gap-8 isolate lg:flex-row"
+        className="relative flex flex-col cursor-pointer group isolate"
       >
-        <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-48 lg:shrink-0 overflow-hidden rounded-2xl">
+        <div className="relative aspect-[16/9] lg:shrink-0 overflow-hidden rounded-t-2xl">
           <Image
             src={sanityImageToUrl(data.mainImage).url()}
             alt={data.title}
-            className="absolute inset-0 object-cover w-full h-full scale-100 rounded-2xl bg-gray-50 group-hover:scale-110 transition__300"
+            className="absolute inset-0 object-cover w-full h-full rounded-t-2xl bg-gray-50 transition__300 grayscale group-hover:grayscale-0"
             fill
           />
-          <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+          <div className="absolute inset-0 rounded-t-2xl ring-1 ring-inset ring-gray-900/10" />
+          <Chip
+            type="primary"
+            label={data.category.title}
+            sx="absolute top-4 right-4"
+            size="small"
+          />
         </div>
-        <div className="px-4">
-          <div className="flex items-center text-xs gap-x-4">
-            <time dateTime={data._createdAt} className="text-gray-600">
-              {new Date(data._createdAt).toLocaleDateString("en-US", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </time>
-            <p className="relative z-10 rounded-full bg-brand-main/10 py-1.5 px-3 font-medium text-gray-600">
-              {data.categories[0].title}
-            </p>
+        <div className="p-4 border rounded-b-2xl">
+          <div className="flex items-center text-xs text-gray-500 gap-x-2">
+            <TextWithIcon
+              leftIcon={<CalendarIcon className="w-4 h-4" />}
+              content={
+                <time dateTime={data._createdAt}>
+                  {new Date(data._createdAt).toLocaleDateString("en-US", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </time>
+              }
+            />
+            <b>·</b>
+            <TextWithIcon
+              leftIcon={<ClockIcon className="w-4 h-4" />}
+              content={<span>{data.readingTime} mins Read</span>}
+            />
           </div>
           <div className="relative max-w-xl">
             <h3 className="mt-3 text-2xl font-semibold leading-6 text-gray-800 group-hover:text-brand-main transition__300">
               <span className="absolute inset-0" />
               {data.title}
             </h3>
-            <p className="mt-3 text-sm leading-6 text-gray-600">
-              {data.description}
+            <p className="mt-3 text-sm leading-6 text-gray-600 line-clamp-2">
+              {data.metaDescription}
             </p>
           </div>
-          <div className="flex pt-6 mt-6 border-t border-gray-900/5">
-            <div className="relative flex items-center gap-x-4">
-              {/* <Image
-                  src={sanityImageToUrl(data.author.image).url()}
-                  alt={data.author.name}
-                  className="w-10 h-10 rounded-full bg-gray-50"
-                  fill
-                /> */}
-              <div className="text-sm">
-                <p className="font-semibold text-gray-900">
-                  {data.author.name}
-                </p>
-                {/* <p className="text-gray-400">{data.author}</p> */}
-              </div>
+          <div className="flex items-center pt-6 mt-6 border-t gap-x-4 border-gray-900/5">
+            <div className="relative aspect-[1] w-10 ">
+              <Image
+                src={
+                  data.author.image
+                    ? sanityImageToUrl(data.author.image).url()
+                    : "https://res.cloudinary.com/manavkaushal/image/upload/v1678268034/Projects/archikart.in/Avatar-Placeholder-400x400-1_orom7a.jpg"
+                }
+                alt={data.author.name}
+                className="rounded-full"
+                fill
+              />
+            </div>
+            <div className="text-sm">
+              <p className="font-semibold text-gray-900">{data.author.name}</p>
+              <p className="text-gray-400">{data.author.role.title}</p>
             </div>
           </div>
         </div>
