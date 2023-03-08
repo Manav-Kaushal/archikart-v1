@@ -30,20 +30,16 @@ const query = groq`
   category->
 } | order(_createdAt desc)
 `;
-const catQuery = groq`
-*[_type=='category']
+const categoriesQuery = groq`
+  *[_type == "category"]{
+    _id,
+    title,
+    "totalPosts": count(*[_type == "post" && references(^._id)])
+  }
 `;
 
 const Blog = ({ preview, posts, categories }: any) => {
   const router = useRouter();
-  function groupArrayByKey(arr: any, key: string) {
-    return arr.reduce((result: any, obj: any) => {
-      const value = obj[key];
-      result[value] = result[value] || [];
-      result[value].push(obj);
-      return result;
-    }, {});
-  }
 
   if (preview) {
     return (
@@ -114,12 +110,8 @@ export const getStaticProps = async ({ preview = false }) => {
     return { props: { preview } };
   }
 
-  const data: Post[] = await client.fetch(query);
-  const posts = data.map((post: Post) => {
-    return { ...post, categoryTitle: post.category.title };
-  });
-
-  const categories: Category[] = await client.fetch(catQuery);
+  const posts: Post[] = await client.fetch(query);
+  const categories: Category[] = await client.fetch(categoriesQuery);
 
   return { props: { preview, posts, categories } };
 };

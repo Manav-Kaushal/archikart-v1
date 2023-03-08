@@ -66,6 +66,7 @@ export interface Category extends Base {
   type: "category";
   description: string;
   title: string;
+  totalPosts?: number;
 }
 
 export interface MainImage {
