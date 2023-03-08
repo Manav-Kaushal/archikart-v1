@@ -2,7 +2,7 @@ export default {
   title: `Archikart`,
   titleTemplate: "Archikart | %s",
   description: "",
-  keywords: "",
+  canonical: "https://archikart.in",
   openGraph: {
     type: "website",
     locale: "en_IE",

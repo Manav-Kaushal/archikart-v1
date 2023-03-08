@@ -13,6 +13,8 @@ import { ArrowUturnLeftIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import sanityImageToUrl from "@utils/sanity/sanityImageToUrl";
 import { motion } from "framer-motion";
+import { MetaTag } from "next-seo/lib/types";
+import { app } from "@utils/config";
 
 type Props = {
   post: Post;
@@ -25,7 +27,21 @@ const SinglePost = ({ post }: Props) => {
   }
   return (
     <>
-      <NextSeo title={capitalize(post.title)} />
+      <NextSeo
+        title={capitalize(post.title)}
+        description={post.metaDescription}
+        canonical={`${app.website}/blog/${post.slug.current}`}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: post.metaKeywords,
+          },
+          {
+            name: "author",
+            content: post.author.name,
+          },
+        ]}
+      />
       <Banner backgroundImage="https://images.pexels.com/photos/1915906/pexels-photo-1915906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
 
       <section className="bg-gray-100">
@@ -69,6 +85,8 @@ const SinglePost = ({ post }: Props) => {
                       })}
                     </p>
                     <span>|</span> <p>{post.author.name}</p>
+                    <span>|</span>
+                    <p>{post.readingTime} mins</p>
                   </div>
                 </div>
                 {/* 

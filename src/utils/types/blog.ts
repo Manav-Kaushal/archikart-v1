@@ -14,6 +14,10 @@ export interface Post extends Base {
   slug: Slug;
   title: string;
   description: string;
+  readingTime: number;
+  metaTitle: string;
+  metaDescription: string;
+  metaKeywords: string;
 }
 
 export interface Author extends Base {
