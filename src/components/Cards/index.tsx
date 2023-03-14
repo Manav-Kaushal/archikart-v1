@@ -1,3 +1,4 @@
+import SectionTitle from "@components/SectionTitle";
 import { classNames, getCloudinaryImageUrl } from "@utils/helpers";
 import Image from "next/image";
 import React, { ReactNode } from "react";
@@ -122,18 +123,19 @@ const Card = ({ variant = "baseCard", sx = "", ...props }: CardProps) => {
     return (
       <div
         className={classNames(
-          "p-4 bg-brand-main/5 shadow rounded-xl transition duration-200 ease-in-out",
+          "px-8 py-10 bg-brand-main/5 shadow rounded-xl transition duration-200 ease-in-out",
           sx
         )}
       >
-        {title && (
-          <h3 className="text-3xl font-semibold capitalize text-brand-main">
+        {/* {title && (
+          <h3 className="text-3xl font-semibold capitalize text-brand-text">
             {title}
           </h3>
         )}
         {description && (
           <p className="text-xl font-light text-brand-grey">{description}</p>
-        )}
+        )} */}
+        <SectionTitle title={title} description={description} />
         <div>{children}</div>
       </div>
     );

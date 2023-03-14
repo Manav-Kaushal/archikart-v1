@@ -8,6 +8,7 @@ module.exports = {
         "brand-dark": "#d85204",
         "brand-charcoal": "#333333",
         "brand-grey": "#777",
+        "brand-text": "#1f2937",
       },
     },
   },

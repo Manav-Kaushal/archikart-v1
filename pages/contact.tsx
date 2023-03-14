@@ -5,7 +5,11 @@ import Card from "@components/Cards";
 import InputField from "@components/InputField";
 import Section from "@components/Section";
 import SectionTitle from "@components/SectionTitle";
-import { BuildingOffice2Icon, PhoneIcon } from "@heroicons/react/24/outline";
+import {
+  BuildingOffice2Icon,
+  EnvelopeIcon,
+  PhoneIcon,
+} from "@heroicons/react/24/outline";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -68,58 +72,68 @@ const Contact = (props: Props) => {
           <div className="grid items-center grid-cols-1 gap-16 md:grid-cols-2">
             <div>
               <div className="grid max-w-2xl grid-cols-1 gap-6 mx-auto lg:gap-8">
-                <Card variant="baseCard">
-                  <div className="flex items-center space-x-4">
-                    <PhoneIcon
-                      className="flex-none w-6 h-6 text-brand-main"
-                      aria-hidden="true"
-                    />
-                    <h3 className="text-2xl font-semibold text-brand-main">
-                      Support
-                    </h3>
-                  </div>
-                  <div className="pl-10 mt-2 text-base">
-                    <p className="text-lg text-gray-500">
-                      <Link
-                        className="hover:text-brand-dark transition__300"
-                        href="tel:+91 95012 06323"
-                      >
-                        +91 95012 06323
-                      </Link>
-                      <br />
-                      <Link
-                        className="hover:text-brand-dark transition__300"
-                        href="mailto:sales@example.com"
-                      >
-                        test@example.com
-                      </Link>
-                    </p>
-                  </div>
-                </Card>
-                <Card variant="baseCard">
-                  <div className="flex items-center space-x-4">
-                    <BuildingOffice2Icon
-                      className="flex-none w-6 h-6 text-brand-main"
-                      aria-hidden="true"
-                    />
-                    <h3 className="text-2xl font-semibold text-brand-main">
-                      Address
-                    </h3>
-                  </div>
-                  <div className="pl-10 mt-2 text-base">
-                    <p className="text-lg text-gray-500">
+                <SectionTitle title="Get in touch" underlineTitle />
+                <p className="text-lg leading-8 text-gray-600">
+                  Proin volutpat consequat porttitor cras nullam gravida at.
+                  Orci molestie a eu arcu. Sed ut tincidunt integer elementum id
+                  sem. Arcu sed malesuada et magna.
+                </p>
+                <dl className="space-y-4 text-base leading-7 text-gray-600">
+                  <div className="flex gap-x-4">
+                    <dt className="flex-none">
+                      <span className="sr-only">Telephone</span>
+                      <BuildingOffice2Icon
+                        className="w-6 text-gray-400 h-7"
+                        aria-hidden="true"
+                      />
+                    </dt>
+                    <dd>
                       545 Mavis Island
                       <br />
                       Chicago, IL 99191
-                    </p>
+                    </dd>
                   </div>
-                </Card>
+                  <div className="flex gap-x-4">
+                    <dt className="flex-none">
+                      <span className="sr-only">Telephone</span>
+                      <PhoneIcon
+                        className="w-6 text-gray-400 h-7"
+                        aria-hidden="true"
+                      />
+                    </dt>
+                    <dd>
+                      <Link
+                        className="hover:text-brand-main transition__300"
+                        href="tel:+1 (555) 234-5678"
+                      >
+                        +1 (555) 234-5678
+                      </Link>
+                    </dd>
+                  </div>
+                  <div className="flex gap-x-4">
+                    <dt className="flex-none">
+                      <span className="sr-only">Telephone</span>
+                      <EnvelopeIcon
+                        className="w-6 text-gray-400 h-7"
+                        aria-hidden="true"
+                      />
+                    </dt>
+                    <dd>
+                      <Link
+                        className="hover:text-brand-main transition__300"
+                        href="mailto:hello@example.com"
+                      >
+                        hello@example.com
+                      </Link>
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </div>
             <div>
               <Card
                 variant="form"
-                title="have a doubt?"
+                title="Get a quote!"
                 description="Reach out to us!"
               >
                 <form

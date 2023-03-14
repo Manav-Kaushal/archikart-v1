@@ -2,7 +2,7 @@ import Banner from "@components/Banner";
 import Breadcrumbs from "@components/Breadcrumbs";
 import Section from "@components/Section";
 import { NextSeo } from "next-seo";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { client } from "@utils/sanity/sanity.client";
 import { PreviewSuspense } from "next-sanity/preview";
 import { groq } from "next-sanity";
@@ -13,6 +13,8 @@ import BlogSidebar from "@components/Blog/BlogSidebar";
 import Button from "@components/Button";
 import { app } from "@utils/config";
 import { Category, Post } from "@utils/types/blog";
+import Select from "@components/Select";
+import { useQuery } from "@utils/hooks/useQuery";
 
 type Props = {
   preview: boolean;
@@ -20,7 +22,7 @@ type Props = {
   categories: Category[];
 };
 
-const query = groq`
+const postsQuery = groq`
 *[_type=='post']{
   ...,
   author->{
@@ -37,6 +39,10 @@ const categoriesQuery = groq`
     "totalPosts": count(*[_type == "post" && references(^._id)])
   }
 `;
+
+const filterInitialState = {
+  category: "",
+};
 
 const Blog = ({ preview, posts, categories }: any) => {
   const router = useRouter();
@@ -68,7 +74,7 @@ const Blog = ({ preview, posts, categories }: any) => {
                   </div>
                 }
               >
-                <BlogListPreview router={router} query={query} />
+                <BlogListPreview router={router} query={postsQuery} />
               </PreviewSuspense>
             </div>
             <aside>
@@ -92,7 +98,7 @@ const Blog = ({ preview, posts, categories }: any) => {
       <div className="section__card">
         <Section>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
-            <div className="space-y-20 md:col-span-3 lg:space-y-16">
+            <div className="space-y-4 md:col-span-3">
               <BlogList posts={posts} />
             </div>
             <aside>
@@ -110,7 +116,7 @@ export const getStaticProps = async ({ preview = false }) => {
     return { props: { preview } };
   }
 
-  const posts: Post[] = await client.fetch(query);
+  const posts: Post[] = await client.fetch(postsQuery);
   const categories: Category[] = await client.fetch(categoriesQuery);
 
   return { props: { preview, posts, categories } };

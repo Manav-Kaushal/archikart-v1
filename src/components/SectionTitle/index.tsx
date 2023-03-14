@@ -6,6 +6,7 @@ type SectionTitleProps = {
   description?: string;
   sx?: string;
   center?: boolean;
+  underlineTitle?: boolean;
 };
 
 const SectionTitle: React.FC<SectionTitleProps> = ({
@@ -13,10 +14,16 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
   description = "",
   sx = "",
   center = false,
+  underlineTitle = false,
 }) => {
   return (
     <div className={classNames(sx, center && "text-center")}>
-      <h2 className="text-4xl font-bold leading-tight sm:text-5xl md:text-4xl text-brand-charcoal">
+      <h2
+        className={classNames(
+          "text-4xl font-bold leading-tight capitalize sm:text-5xl md:text-4xl text-brand-text",
+          underlineTitle && "underline"
+        )}
+      >
         {title}
       </h2>
       {description && (
