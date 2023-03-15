@@ -40,10 +40,6 @@ const categoriesQuery = groq`
   }
 `;
 
-const filterInitialState = {
-  category: "",
-};
-
 const Blog = ({ preview, posts, categories }: any) => {
   const router = useRouter();
 
@@ -111,7 +107,7 @@ const Blog = ({ preview, posts, categories }: any) => {
   );
 };
 
-export const getStaticProps = async ({ preview = false }) => {
+export const getServerSideProps = async ({ preview = false }) => {
   if (preview) {
     return { props: { preview } };
   }
@@ -119,7 +115,7 @@ export const getStaticProps = async ({ preview = false }) => {
   const posts: Post[] = await client.fetch(postsQuery);
   const categories: Category[] = await client.fetch(categoriesQuery);
 
-  return { props: { preview, posts, categories } };
+  return { props: { preview, posts, categories }, revalidate: 10 };
 };
 
 export default Blog;
