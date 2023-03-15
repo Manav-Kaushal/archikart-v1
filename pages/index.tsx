@@ -17,6 +17,27 @@ import {
 } from "@utils/types/homePage";
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 const Home: NextPage = () => {
   return (
@@ -44,16 +65,23 @@ const Home: NextPage = () => {
           description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi?"
           center
         />
-        <div className="grid gap-8 mt-12 md:grid-cols-3">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid gap-8 mt-12 md:grid-cols-3"
+        >
           {section2Data.map((data: section2DataType) => (
-            <Card
-              key={data.title}
-              variant="baseCard"
-              title={data.title}
-              description={data.description}
-            />
+            <motion.div key={data.title} variants={item}>
+              <Card
+                variant="baseCard"
+                title={data.title}
+                description={data.description}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Section>
       {/* Section 3 */}
       <Section>
@@ -62,19 +90,22 @@ const Home: NextPage = () => {
           description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi?"
           center
         />
-        <div className="grid gap-8 mt-12 md:grid-cols-3">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid gap-8 mt-12 md:grid-cols-3"
+        >
           {section3Data.map((data: section3DataType) => (
-            <Card
-              key={data.title}
-              variant="fullImage"
-              title={data.title}
-              img={data.img}
-            />
+            <motion.div key={data.title} variants={item}>
+              <Card variant="fullImage" title={data.title} img={data.img} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Section>
       {/* Section 4 */}
-      <Section>
+      <Section bottomPadding>
         <SectionTitle
           title="Our Facilities"
           description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas inventore sunt, nihil accusantium cupiditate maiores."

@@ -1,5 +1,6 @@
 import { classNames } from "@utils/helpers";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 type Props = {
   title?: string | React.ReactNode;

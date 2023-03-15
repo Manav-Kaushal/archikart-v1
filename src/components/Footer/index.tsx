@@ -26,7 +26,7 @@ const socialData = [
 
 const Footer = (props: Props) => {
   return (
-    <div className="py-12 bg-brand-main/10">
+    <div className="py-12 mt-24 bg-brand-main/10">
       <div className="text-center global__container">
         <div className="space-y-6">
           <h5 className="text-lg font-bold text-brand-main">About Us</h5>

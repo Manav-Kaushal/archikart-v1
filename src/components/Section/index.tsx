@@ -1,23 +1,28 @@
 import { classNames } from "@utils/helpers";
 import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Props = {
   children: React.ReactNode;
   sx?: string;
-  noPadding?: boolean;
+  bottomPadding?: boolean;
 };
 
-const Section = ({ children, sx = "", noPadding = false }: Props) => {
+const Section = ({ children, sx = "", bottomPadding = false }: Props) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
       className={classNames(
-        "global__container",
+        "global__container pt-24",
         sx,
-        noPadding ? "py-0" : "py-24"
+        bottomPadding && "pb-24"
       )}
     >
       {children}
-    </div>
+    </motion.div>
   );
 };
 
