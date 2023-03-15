@@ -14,6 +14,9 @@ import { NextSeo } from "next-seo";
 import Link from "next/link";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import axios from "axios";
+import Loader from "@components/Loader";
+import { checkAllKeysHaveValues } from "@utils/helpers";
 
 type Props = {};
 
@@ -32,19 +35,48 @@ const initialFormState = {
 };
 
 const Contact = (props: Props) => {
+  const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState<FormType>(initialFormState);
 
   const handleInputChange = (e: any) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const reset = () => {
+    setForm(initialFormState);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.promise(new Promise((resolve) => setTimeout(resolve, 3000)), {
-      pending: "Promise is pending",
-      success: "Promise resolved 👌",
-      error: "Promise rejected 🤯",
-    });
+    setSubmitting(true);
+    const config = {
+      method: "POST",
+      url: "/api/email",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: form,
+    };
+    try {
+      toast.promise(axios(config), {
+        pending: "Sending Message",
+        success: {
+          render({ data }: any) {
+            reset();
+            return `${data?.data.message}`;
+          },
+        },
+        error: {
+          render({ data }: any) {
+            return `${data?.response?.data?.message}`;
+          },
+        },
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (

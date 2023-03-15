@@ -2,6 +2,7 @@ import { classNames } from "@utils/helpers";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import logo from "@public/archikart_logo.svg";
 
 type LogoProps = {
   sx?: string;
@@ -19,11 +20,7 @@ const Logo = ({
     <div className={classNames("relative", sx, center && "mx-auto")} {...props}>
       <Link href="/">
         <Image
-          src={
-            variant === "white"
-              ? "https://res.cloudinary.com/manavkaushal/image/upload/v1677269944/Projects/logo_kxv8do.png"
-              : ""
-          }
+          src={variant === "white" ? logo : logo}
           alt="Archikart Logo"
           className="object-contain"
           priority

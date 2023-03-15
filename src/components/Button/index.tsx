@@ -25,7 +25,7 @@ const Sizes = {
 const Variants = {
   regular: "bg-brand-main text-white disabled:hover:bg-brand-main",
   outline:
-    "border border-brand-main text-brand-main hover:bg-brand-main hover:text-white disabled:border-brand-main disabled:bg-transparent",
+    "border border-brand-main text-brand-main hover:bg-brand-main hover:text-white disabled:border-brand-main disabled:bg-transparent disabled:hover:text-brand-main",
   ghost: "text-brand-main disabled:hover:bg-transparent",
   link: "text-brand-main hover:underline disabled:no-underline",
   "outline-white":

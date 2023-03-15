@@ -91,7 +91,7 @@ const InputField: React.FC<Props> = ({
   ...props
 }) => {
   const baseClasses =
-    "w-full px-4 py-2 bg-white border outline-none focus:ring-1 focus:ring-brand-main transition__300";
+    "w-full px-4 py-2 bg-white border text-gray-600 outline-none font-medium focus:ring-1 focus:ring-brand-main transition__300";
 
   const inputClasses = `${baseClasses} ${getShape[shape]} ${
     LeftIcon && "pl-10"

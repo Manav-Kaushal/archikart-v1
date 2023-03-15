@@ -12,13 +12,15 @@ export const getCloudinaryImageUrl = (img: string) => {
 };
 
 export const capitalize = (sentence: string) => {
-  // Split the sentence into words
   const words = sentence.split(" ");
-
-  // Capitalize the first letter of each word and join them back into a sentence
   const capitalizedWords = words.map(
     (word) => word.charAt(0).toUpperCase() + word.slice(1)
   );
-
   return capitalizedWords.join(" ");
+};
+
+export const checkAllKeysHaveValues = (obj: Record<string, any>): boolean => {
+  return Object.values(obj).every(
+    (value) => value !== null && value !== undefined
+  );
 };
