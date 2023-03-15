@@ -115,7 +115,7 @@ export const getServerSideProps = async ({ preview = false }) => {
   const posts: Post[] = await client.fetch(postsQuery);
   const categories: Category[] = await client.fetch(categoriesQuery);
 
-  return { props: { preview, posts, categories }, revalidate: 10 };
+  return { props: { preview, posts, categories } };
 };
 
 export default Blog;
