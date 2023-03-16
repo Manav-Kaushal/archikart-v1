@@ -1,9 +1,11 @@
 import { classNames } from "@utils/helpers";
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Typography from "@components/Typography";
 
 type Props = {
   title?: string | React.ReactNode;
+  subTitle?: string | React.ReactNode;
   fullScreen?: boolean;
   description?: string | React.ReactNode;
   center?: boolean;
@@ -15,6 +17,7 @@ type Props = {
 const Banner = ({
   fullScreen = false,
   title = "",
+  subTitle = "",
   description = "",
   center = true,
   backgroundImage = "https://images.pexels.com/photos/262347/pexels-photo-262347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -38,19 +41,11 @@ const Banner = ({
           center ? "text-center" : null
         )}
       >
-        <h1
-          className={classNames(
-            "font-bold max-w-7xl capitalize",
-            fullScreen
-              ? "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
-              : "text-3xl md:text-4xl lg:text-5xl"
-          )}
-        >
+        {subTitle && <Typography variant="h5">{subTitle}</Typography>}
+        <Typography variant="h1" capitalize>
           {title}
-        </h1>
-        {description && (
-          <p className="max-w-xl mx-auto text-lg md:text-2xl">{description}</p>
-        )}
+        </Typography>
+        {description && <Typography variant="body">{description}</Typography>}
         <div>{children}</div>
       </div>
     </div>

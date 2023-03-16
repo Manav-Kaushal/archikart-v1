@@ -1,20 +1,37 @@
+import { classNames } from "@utils/helpers";
 import React, { ReactNode } from "react";
 
 interface TypographyProps {
   children: ReactNode;
   variant: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle" | "body";
-  className?: string;
+  sx?: string;
+  capitalize?: boolean;
 }
+
+const VariantMapping = {
+  h1: "h1",
+  h2: "h2",
+  h3: "h3",
+  h4: "h4",
+  h5: "h5",
+  h6: "h6",
+  subtitle: "h5",
+  body: "p",
+  span: "span",
+};
 
 const Typography: React.FC<TypographyProps> = ({
   children,
   variant,
-  className,
+  sx,
+  ...props
 }) => {
+  const { capitalize } = props;
+
   const getHeadingClass = () => {
     switch (variant) {
       case "h1":
-        return "text-4xl font-bold leading-tight";
+        return "text-5xl font-bold leading-tight";
       case "h2":
         return "text-3xl font-semibold leading-tight";
       case "h3":
@@ -34,7 +51,16 @@ const Typography: React.FC<TypographyProps> = ({
     }
   };
 
-  return <div className={`${getHeadingClass()} ${className}`}>{children}</div>;
+  const Component: any = variant ? VariantMapping[variant] : "p";
+
+  return (
+    <Component
+      className={classNames(getHeadingClass(), sx, capitalize && "capitalize")}
+      {...props}
+    >
+      {children}
+    </Component>
+  );
 };
 
 export default Typography;

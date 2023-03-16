@@ -4,7 +4,7 @@ import Card from "@components/Cards";
 import InputField from "@components/InputField";
 import Section from "@components/Section";
 import SectionTitle from "@components/SectionTitle";
-import { EnvelopeIcon, PencilIcon } from "@heroicons/react/24/outline";
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import {
   section2Data,
   section3Data,
@@ -18,6 +18,7 @@ import {
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import { motion } from "framer-motion";
+import Typography from "@components/Typography";
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -49,12 +50,13 @@ const Home: NextPage = () => {
             Welcome to <span className="brand__red">Archikart.</span>
           </>
         }
+        subTitle="Plan your home today"
         description="Designing spaces that reflect your personality."
         fullScreen
       >
         <div className="mt-10 global__container">
           <Button onClick={() => {}} size="large" shape="sharp">
-            <span>Know More</span>
+            <Typography variant="body">Know More</Typography>
           </Button>
         </div>
       </Banner>

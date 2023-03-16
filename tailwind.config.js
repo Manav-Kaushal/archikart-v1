@@ -1,7 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+
+// Settings
+const settingsScreens = require("./tailwind.settings.screens");
+const settingsFontSizes = require("./tailwind.settings.fontSizes");
+
 module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: settingsScreens,
+    fontSize: settingsFontSizes,
     extend: {
       colors: {
         "brand-main": "#F75C03",
