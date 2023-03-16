@@ -128,25 +128,25 @@ const SinglePost = ({ post }: Props) => {
   );
 };
 
-// export async function getStaticPaths() {
-//   const query = groq`
-//     *[_type=='post']
-//     {
-//       slug
-//     }
-//   `;
-//   const data: Post[] = await client.fetch(query);
+export async function getStaticPaths() {
+  const query = groq`
+    *[_type=='post']
+    {
+      slug
+    }
+  `;
+  const data: Post[] = await client.fetch(query);
 
-//   const paths = data.map((post) => ({
-//     params: { slug: post.slug.current },
-//   }));
+  const paths = data.map((post) => ({
+    params: { slug: post.slug.current },
+  }));
 
-//   // We'll pre-render only these paths at build time.
-//   // { fallback: false } means other routes should 404.
-//   return { paths, fallback: true };
-// }
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: true };
+}
 
-export async function getServerSideProps({ params }: any) {
+export async function getStaticProps({ params }: any) {
   const query = groq`
     *[_type=='post' && slug.current == $slug][0]
     {

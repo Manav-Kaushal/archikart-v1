@@ -107,7 +107,7 @@ const Blog = ({ preview, posts, categories }: any) => {
   );
 };
 
-export const getServerSideProps = async ({ preview = false }) => {
+export async function getStaticProps({ preview = false }) {
   if (preview) {
     return { props: { preview } };
   }
@@ -115,7 +115,7 @@ export const getServerSideProps = async ({ preview = false }) => {
   const posts: Post[] = await client.fetch(postsQuery);
   const categories: Category[] = await client.fetch(categoriesQuery);
 
-  return { props: { preview, posts, categories } };
-};
+  return { props: { preview, posts, categories }, revalidate: 10 };
+}
 
 export default Blog;
