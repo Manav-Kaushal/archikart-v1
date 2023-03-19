@@ -1,12 +1,12 @@
+import Typography from "@components/Typography";
 import { classNames } from "@utils/helpers";
 import React from "react";
 
 type SectionTitleProps = {
-  title: string;
+  title: string | React.ReactNode;
   description?: string;
   sx?: string;
   center?: boolean;
-  underlineTitle?: boolean;
 };
 
 const SectionTitle: React.FC<SectionTitleProps> = ({
@@ -14,27 +14,21 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
   description = "",
   sx = "",
   center = false,
-  underlineTitle = false,
 }) => {
   return (
     <div className={classNames(sx, center && "text-center")}>
-      <h2
-        className={classNames(
-          "text-4xl font-bold leading-tight capitalize sm:text-5xl md:text-4xl text-brand-text",
-          underlineTitle && "underline"
-        )}
-      >
+      <Typography variant="h3" center={center} capitalize>
         {title}
-      </h2>
+      </Typography>
       {description && (
-        <p
-          className={classNames(
-            "mt-1 text-base font-light text-brand-grey",
-            center && "max-w-4xl mx-auto "
-          )}
+        <Typography
+          variant="body"
+          sx="text-brand-grey"
+          style={{ fontWeight: 300 }}
+          center
         >
           {description}
-        </p>
+        </Typography>
       )}
     </div>
   );

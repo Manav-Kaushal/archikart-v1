@@ -1,3 +1,4 @@
+import Typography from "@components/Typography";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { app } from "@utils/config";
 import Image from "next/image";
@@ -29,13 +30,18 @@ const Footer = (props: Props) => {
     <div className="py-12 mt-24 bg-brand-main/10">
       <div className="text-center global__container">
         <div className="space-y-6">
-          <h5 className="text-lg font-bold text-brand-main">About Us</h5>
-          <p className="max-w-4xl mx-auto text-brand-grey">
+          <Typography variant="h5" sx="font-bold text-brand-main">
+            About Us
+          </Typography>
+          <Typography
+            variant="bodySmall"
+            sx="max-w-7xl mx-auto text-brand-grey"
+          >
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab harum
             veniam similique ratione delectus necessitatibus, corporis deserunt
             ea sunt numquam tenetur error laudantium rerum magni hic consectetur
             ducimus praesentium nam!
-          </p>
+          </Typography>
         </div>
         <div className="flex items-center py-6 mx-auto space-x-6 w-fit">
           {socialData.map((social) => (
@@ -45,7 +51,7 @@ const Footer = (props: Props) => {
               alt={social.name}
               width={35}
               height={35}
-              className="cursor-pointer hover:-mt-4 transition__300"
+              className="cursor-pointer hover:-mt-2 transition__300"
             />
           ))}
         </div>

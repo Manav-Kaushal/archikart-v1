@@ -9,9 +9,30 @@ import {
 import { FaqType, StatType, ValueType } from "@utils/types/aboutPage";
 
 export const stats: StatType[] = [
-  { label: "Transactions every 24 hours", value: "44 million" },
-  { label: "Assets under holding", value: "$119 trillion" },
-  { label: "New users annually", value: "46,000" },
+  {
+    label: "Transactions every 24 hours",
+    value: (
+      <>
+        <span className="text-brand-main">44</span> million
+      </>
+    ),
+  },
+  {
+    label: "Assets under holding",
+    value: (
+      <>
+        <span className="text-brand-main">$119</span> trillion
+      </>
+    ),
+  },
+  {
+    label: "New users annually",
+    value: (
+      <>
+        <span className="text-brand-main">46,000</span>
+      </>
+    ),
+  },
 ];
 
 export const values: ValueType[] = [
@@ -24,7 +45,7 @@ export const values: ValueType[] = [
   {
     name: "Take responsibility.",
     description:
-      "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.",
+      "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem.",
     icon: HandRaisedIcon,
   },
   {

@@ -29,7 +29,7 @@ const Layout = ({ children }: Props) => {
       {!router.pathname.includes("/studio") && <Footer />}
       <button
         className={classNames(
-          "fixed bottom-6 right-6 transition__300 bg-white text-brand-main border border-brand-main hover:text-white hover:border-brand-main hover:bg-brand-main p-1 z-40",
+          "fixed bottom-6 right-6 transition__300 bg-brand-dark text-white border border-brand-dark hover:text-white hover:border-brand-main hover:bg-brand-main p-2 z-40 rounded-full",
           isShrunk ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
         onClick={handleClick}

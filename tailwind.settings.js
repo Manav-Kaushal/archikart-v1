@@ -6,7 +6,7 @@ module.exports = {
   typography: {
     fontSizeMin: 1.125,
     fontSizeMax: 1.25,
-    msFactorMin: 1.2,
+    msFactorMin: 1.20,
     msFactorMax: 1.25,
     lineHeight: 1.6,
   },

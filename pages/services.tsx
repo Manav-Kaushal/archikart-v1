@@ -1,6 +1,7 @@
 import Banner from "@components/Banner";
 import Breadcrumbs from "@components/Breadcrumbs";
-import Card from "@components/Cards";
+import BaseCard from "@components/Cards/BaseCard";
+import ImageWithText from "@components/Cards/ImageWithText";
 import Section from "@components/Section";
 import SectionTitle from "@components/SectionTitle";
 import { section2Data, section4Data } from "@utils/mocks/homePageData";
@@ -29,9 +30,8 @@ const Services = (props: Props) => {
           />
           <div className="grid gap-8 mt-12 md:grid-cols-3">
             {section2Data.map((data: section2DataType) => (
-              <Card
+              <BaseCard
                 key={data.title}
-                variant="baseCard"
                 title={data.title}
                 description={data.description}
               />
@@ -46,9 +46,8 @@ const Services = (props: Props) => {
           />
           <div className="grid gap-12 mt-12 md:grid-cols-3">
             {section4Data.map((data: section4DataType) => (
-              <Card
+              <ImageWithText
                 key={data.title}
-                variant="imageWithText"
                 title={data.title}
                 description={data.description}
                 img={data.img}

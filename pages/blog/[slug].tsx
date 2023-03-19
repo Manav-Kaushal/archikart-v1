@@ -51,7 +51,7 @@ const SinglePost = ({ post }: Props) => {
         ]}
       />
       <Banner backgroundImage="https://images.pexels.com/photos/1915906/pexels-photo-1915906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-      <section className="bg-gray-100">
+      <section className="bg-gray-100 -mb-24">
         <motion.div
           initial={{ y: 20 }}
           animate={{ y: 0 }}

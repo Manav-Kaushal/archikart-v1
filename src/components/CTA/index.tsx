@@ -1,7 +1,6 @@
-import { classNames } from "@utils/helpers";
-import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import Typography from "@components/Typography";
+import { classNames } from "@utils/helpers";
+import React from "react";
 
 type Props = {
   title?: string | React.ReactNode;
@@ -14,22 +13,17 @@ type Props = {
   children?: React.ReactNode;
 };
 
-const Banner = ({
-  fullScreen = false,
+const CTABanner = ({
   title = "",
-  subTitle = "",
   description = "",
   center = true,
   backgroundImage = "https://images.pexels.com/photos/262347/pexels-photo-262347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  zeroPadding = false,
   children,
 }: Props) => {
   return (
     <div
       className={classNames(
-        "relative bg-no-repeat bg-cover bg-center flex items-center justify-center bg__overlay__70", // pt-[50px] is given to accommodate the top space that header used
-        fullScreen ? "min-h-screen" : "min-h-[300px] md:min-h-[325px]",
-        zeroPadding ? "" : "pt-[50px]"
+        "min-h-[300px] md:min-h-[325px] relative bg-no-repeat bg-cover bg-center flex items-center justify-center bg__overlay__70"
       )}
       style={{
         backgroundImage: `url(${backgroundImage})`,
@@ -41,12 +35,7 @@ const Banner = ({
           center ? "text-center" : ""
         )}
       >
-        {subTitle && (
-          <Typography variant="body" sx="tracking-widest" capitalize>
-            {subTitle}
-          </Typography>
-        )}
-        <Typography variant={fullScreen ? "h1" : "h2"} capitalize>
+        <Typography variant="h2" capitalize>
           {title}
         </Typography>
         {description && (
@@ -58,4 +47,4 @@ const Banner = ({
   );
 };
 
-export default Banner;
+export default CTABanner;

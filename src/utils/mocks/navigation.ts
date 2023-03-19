@@ -14,18 +14,18 @@ export const navigation: Navigation[] = [
     title: "About",
     route: BasicRoutesEnum.AboutUs,
   },
-  {
-    title: "Services",
-    route: BasicRoutesEnum.Services,
-  },
+  // {
+  //   title: "Services",
+  //   route: BasicRoutesEnum.Services,
+  // },
   {
     title: "Portfolio",
     route: BasicRoutesEnum.Portfolio,
   },
-  {
-    title: "Contact",
-    route: BasicRoutesEnum.Contact,
-  },
+  // {
+  //   title: "Contact",
+  //   route: BasicRoutesEnum.Contact,
+  // },
   {
     title: "Blog",
     route: BasicRoutesEnum.Blog,

@@ -2,7 +2,7 @@ import { classNames } from "@utils/helpers";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import logo from "@public/archikart_logo.svg";
+import logo from "@public/logo-white.svg";
 
 type LogoProps = {
   sx?: string;

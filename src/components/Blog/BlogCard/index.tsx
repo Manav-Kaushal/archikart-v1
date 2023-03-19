@@ -1,5 +1,6 @@
 import Chip from "@components/Chip";
 import TextWithIcon from "@components/TextWithIcon";
+import Typography from "@components/Typography";
 import { CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
 import sanityImageToUrl from "@utils/sanity/sanityImageToUrl";
 import { Post } from "@utils/types/blog";
@@ -47,20 +48,29 @@ const BlogCard = ({ data }: Props) => {
                 </time>
               }
             />
-            <b>·</b>
+            <Typography variant="bodySmall" sx="font-bold">
+              ·
+            </Typography>
             <TextWithIcon
               leftIcon={<ClockIcon className="w-4 h-4" />}
               content={<span>{data.readingTime} mins Read</span>}
             />
           </div>
           <div className="relative max-w-xl">
-            <h3 className="mt-3 text-2xl font-semibold leading-6 text-gray-800 capitalize group-hover:text-brand-main transition__300">
+            <Typography
+              variant="h5"
+              sx="mt-3 font-semibold group-hover:text-brand-main transition__300"
+              capitalize
+            >
               <span className="absolute inset-0" />
               {data.title}
-            </h3>
-            <p className="mt-3 text-sm leading-6 text-gray-600 line-clamp-2">
+            </Typography>
+            <Typography
+              variant="bodySmall"
+              sx="mt-3 text-gray-600 line-clamp-2"
+            >
               {data.metaDescription}
-            </p>
+            </Typography>
           </div>
           <div className="flex items-center pt-6 mt-6 border-t gap-x-4 border-gray-900/5">
             <div className="relative aspect-[1] w-10 ">
@@ -76,8 +86,12 @@ const BlogCard = ({ data }: Props) => {
               />
             </div>
             <div className="text-sm">
-              <p className="font-semibold text-gray-900">{data.author.name}</p>
-              <p className="text-gray-400">{data.author.role.title}</p>
+              <Typography variant="bodySmall" sx="font-semibold text-gray-900">
+                {data.author.name}
+              </Typography>
+              <Typography variant="bodySmall" sx="text-gray-400">
+                {data.author.role.title}
+              </Typography>
             </div>
           </div>
         </div>

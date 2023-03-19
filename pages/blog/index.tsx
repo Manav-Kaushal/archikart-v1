@@ -2,7 +2,7 @@ import Banner from "@components/Banner";
 import Breadcrumbs from "@components/Breadcrumbs";
 import Section from "@components/Section";
 import { NextSeo } from "next-seo";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { client } from "@utils/sanity/sanity.client";
 import { PreviewSuspense } from "next-sanity/preview";
 import { groq } from "next-sanity";
@@ -11,10 +11,7 @@ import BlogList from "@components/Blog/BlogList";
 import { useRouter } from "next/router";
 import BlogSidebar from "@components/Blog/BlogSidebar";
 import Button from "@components/Button";
-import { app } from "@utils/config";
 import { Category, Post } from "@utils/types/blog";
-import Select from "@components/Select";
-import { useQuery } from "@utils/hooks/useQuery";
 
 type Props = {
   preview: boolean;
@@ -40,7 +37,7 @@ const categoriesQuery = groq`
   }
 `;
 
-const Blog = ({ preview, posts, categories }: any) => {
+const Blog = ({ preview, posts, categories }: Props) => {
   const router = useRouter();
 
   if (preview) {
@@ -86,7 +83,7 @@ const Blog = ({ preview, posts, categories }: any) => {
     <>
       <NextSeo title="Blog" />
       <Banner
-        title={`${app.name} Blog`}
+        title={`Blog`}
         backgroundImage="https://images.pexels.com/photos/1915906/pexels-photo-1915906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       >
         <Breadcrumbs />

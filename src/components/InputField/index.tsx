@@ -91,7 +91,7 @@ const InputField: React.FC<Props> = ({
   ...props
 }) => {
   const baseClasses =
-    "w-full px-4 py-2 bg-white border text-gray-600 outline-none font-medium focus:ring-1 focus:ring-brand-main transition__300";
+    "w-full px-4 py-2 bg-white text-sm border text-gray-600 outline-none font-medium focus:ring-1 focus:ring-brand-main transition__300";
 
   const inputClasses = `${baseClasses} ${getShape[shape]} ${
     LeftIcon && "pl-10"
@@ -129,7 +129,7 @@ const InputField: React.FC<Props> = ({
       ) : (
         <div className="relative">
           <textarea className={textareaClasses} {...props} />
-          <p className="absolute text-sm text-gray-400 right-2 bottom-3">
+          <p className="absolute text-base text-gray-400 right-2 bottom-3">
             ({props.maxLength! - props.value!.toString().length})
           </p>
         </div>

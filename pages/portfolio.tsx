@@ -117,6 +117,16 @@ const Portfolio = (props: Props) => {
       </Banner>
       <div className="section__card">
         <Section>
+          <SectionTitle
+            title={
+              <>
+                We have worked with{" "}
+                <span className="text-brand-main">thousands</span> of amazing
+                people
+              </>
+            }
+            center
+          />
           <div className="relative bg-white isolate">
             <div className="absolute inset-x-0 overflow-hidden -translate-y-1/2 top-1/2 -z-10 transform-gpu opacity-30 blur-3xl">
               <svg
@@ -153,10 +163,7 @@ const Portfolio = (props: Props) => {
                 <use href="#bc169a03-3518-42d4-ab1e-d3eadac65edc" />
               </svg>
             </div>
-            <SectionTitle
-              title="We have worked with thousands of amazing people"
-              center
-            />
+
             <div className="px-6 mx-auto max-w-7xl lg:px-8">
               <div className="grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 mx-auto mt-16 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
                 <figure className="hidden col-span-2 sm:block sm:rounded-2xl sm:bg-white sm:shadow-lg sm:ring-1 sm:ring-gray-900/5 xl:col-start-2 xl:row-end-1">

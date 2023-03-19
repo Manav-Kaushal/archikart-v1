@@ -76,3 +76,8 @@ body {
 .brand__red {
   @apply text-brand-main;
 }
+
+/* Underline */
+.underline__1 {
+  @apply bg-bottom bg-no-repeat bg-contain bg-underline1;
+}

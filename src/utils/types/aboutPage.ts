@@ -2,7 +2,7 @@ import { ForwardRefExoticComponent, ReactNode, SVGProps } from "react";
 
 export type StatType = {
   label: string;
-  value: string;
+  value: string | React.ReactNode;
 };
 
 export type ValueType = {

@@ -3,11 +3,16 @@ import { classNames } from "@utils/helpers";
 import { navigation } from "@utils/mocks/navigation";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { Fragment, useEffect, useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Dialog, Transition } from "@headlessui/react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from "react";
+import {
+  ArrowRightIcon,
+  Bars3Icon,
+  LinkIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import useScroll from "@utils/hooks/useScroll";
+import Typography from "@components/Typography";
+import Button from "@components/Button";
 
 type Props = {};
 
@@ -21,8 +26,8 @@ const Header = (props: Props) => {
   return (
     <header
       className={classNames(
-        "fixed  top-0 left-0 w-full z-40 text-white transition__300",
-        isShrunk ? "h-[70px] bg-black/95" : "h-[100px] bg-transparent"
+        "fixed  top-0 left-0 w-full z-40 text-white transition__300 h-[90px]",
+        isShrunk ? "bg-black" : "bg-transparent"
       )}
     >
       <div className="global__container">
@@ -45,9 +50,13 @@ const Header = (props: Props) => {
                         : "underline__effect"
                     )}
                   >
-                    {navItem.title}
+                    <Typography variant="bodySmall">{navItem.title}</Typography>
                   </Link>
                 ))}
+                <Button size="small" onClick={() => router.push("/contact")}>
+                  <Typography variant="bodySmall">Get A Quote</Typography>
+                  <ArrowRightIcon className="w-4 h-4" />
+                </Button>
               </div>
             </nav>
             <button

@@ -1,10 +1,14 @@
 import Banner from "@components/Banner";
 import Button from "@components/Button";
-import Card from "@components/Cards";
 import InputField from "@components/InputField";
 import Section from "@components/Section";
 import SectionTitle from "@components/SectionTitle";
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowRightIcon,
+  CheckCircleIcon,
+  EnvelopeIcon,
+  InformationCircleIcon,
+} from "@heroicons/react/24/solid";
 import {
   section2Data,
   section3Data,
@@ -15,10 +19,16 @@ import {
   section3DataType,
   section4DataType,
 } from "@utils/types/homePage";
+import underline_1 from "@public/underline_1.svg";
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import { motion } from "framer-motion";
 import Typography from "@components/Typography";
+import CTABanner from "@components/CTA";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
+import BaseCard from "@components/Cards/BaseCard";
+import FullImageCard from "@components/Cards/FullImageCard";
+import ImageWithText from "@components/Cards/ImageWithText";
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -47,48 +57,64 @@ const Home: NextPage = () => {
       <Banner
         title={
           <>
-            Welcome to <span className="brand__red">Archikart.</span>
+            Transforming Your
+            <span className="brand__red"> Vision</span>
+            <br /> into <span className="brand__red">Reality</span>
           </>
         }
-        subTitle="Plan your home today"
-        description="Designing spaces that reflect your personality."
+        subTitle={
+          <>
+            Designing spaces that{" "}
+            <span className="underline__1 pb-[16px]">inspire</span>
+          </>
+        }
+        // description="Designing spaces that reflect your personality"
+        backgroundImage="https://images.pexels.com/photos/157811/pexels-photo-157811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         fullScreen
       >
-        <div className="mt-10 global__container">
-          <Button onClick={() => {}} size="large" shape="sharp">
-            <Typography variant="body">Know More</Typography>
+        <div className="flex items-center justify-center mt-10 space-x-10 global__container">
+          <Button onClick={() => {}} size="large">
+            <Typography variant="body">Create</Typography>
+            <InformationCircleIcon className="w-5 h-5" />
+          </Button>
+          <Button onClick={() => {}} size="large">
+            <Typography variant="body">Contact</Typography>
+            <ChevronRightIcon className="w-5 h-5" />
           </Button>
         </div>
       </Banner>
       {/* Section 2 */}
       <Section>
         <SectionTitle
-          title="Courses We Offer"
+          title={
+            <>
+              Courses We <span className="text-brand-main">Offer</span>
+            </>
+          }
           description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi?"
           center
         />
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid gap-8 mt-12 md:grid-cols-3"
-        >
+        <div className="grid gap-8 mt-12 md:grid-cols-3">
           {section2Data.map((data: section2DataType) => (
-            <motion.div key={data.title} variants={item}>
-              <Card
-                variant="baseCard"
+            <div key={data.title}>
+              <BaseCard
                 title={data.title}
                 description={data.description}
+                sx={`hover:-mt-2 transition__300 cursor-default`}
               />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </Section>
       {/* Section 3 */}
       <Section>
         <SectionTitle
-          title="Our Global Campuses"
+          title={
+            <>
+              Our <span className="text-brand-main">Global </span>
+              Campuses
+            </>
+          }
           description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi?"
           center
         />
@@ -101,7 +127,7 @@ const Home: NextPage = () => {
         >
           {section3Data.map((data: section3DataType) => (
             <motion.div key={data.title} variants={item}>
-              <Card variant="fullImage" title={data.title} img={data.img} />
+              <FullImageCard title={data.title} img={data.img} />
             </motion.div>
           ))}
         </motion.div>
@@ -109,15 +135,18 @@ const Home: NextPage = () => {
       {/* Section 4 */}
       <Section bottomPadding>
         <SectionTitle
-          title="Our Facilities"
+          title={
+            <>
+              Our <span className="text-brand-main">Facilities</span>
+            </>
+          }
           description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas inventore sunt, nihil accusantium cupiditate maiores."
           center
         />
         <div className="grid gap-12 mt-12 md:grid-cols-3">
           {section4Data.map((data: section4DataType) => (
-            <Card
+            <ImageWithText
               key={data.title}
-              variant="imageWithText"
               title={data.title}
               description={data.description}
               img={data.img}
@@ -126,7 +155,7 @@ const Home: NextPage = () => {
         </div>
       </Section>
       {/* Marketing Banner */}
-      <Banner
+      <CTABanner
         title={
           <>
             Enroll For Our Various
@@ -143,16 +172,21 @@ const Home: NextPage = () => {
             onClick={() => {}}
             variant="outline-white"
             size="large"
-            shape="sharp"
+            center
           >
-            <span>Contact Us</span>
+            <Typography variant="body">Contact Us</Typography>
           </Button>
         </div>
-      </Banner>
+      </CTABanner>
       {/* Section 6 */}
       <Section>
         <SectionTitle
-          title="Subscribe To Our Daily Newsletter"
+          title={
+            <>
+              Subscribe To Our
+              <span className="brand__red"> Daily Newsletter</span>
+            </>
+          }
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nemo delectus deleniti saepe sapiente et quisquam.
 Numquam adipisci harum hic ut, odit inventore similique incidunt?"
           center
@@ -164,7 +198,12 @@ Numquam adipisci harum hic ut, odit inventore similique incidunt?"
             shape="sharp"
             LeftIcon={EnvelopeIcon}
           />
-          <Button onClick={() => {}} variant="outline" shape="sharp">
+          <Button
+            onClick={() => {}}
+            variant="outline"
+            size="small"
+            shape="sharp"
+          >
             <span>Subscribe</span>
           </Button>
         </div>

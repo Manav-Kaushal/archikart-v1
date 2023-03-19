@@ -1,3 +1,4 @@
+import Typography from "@components/Typography";
 import React, { ReactNode } from "react";
 
 type Props = {
@@ -8,11 +9,11 @@ type Props = {
 
 const TextWithIcon = ({ leftIcon, rightIcon, content }: Props) => {
   return (
-    <div className="flex items-center space-x-2">
+    <Typography variant="bodySmall" sx="flex items-center space-x-2">
       {leftIcon && leftIcon}
       <>{content}</>
       {rightIcon && rightIcon}
-    </div>
+    </Typography>
   );
 };
 

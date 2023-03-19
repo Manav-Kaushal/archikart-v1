@@ -23,10 +23,10 @@ const Sizes = {
 };
 
 const Variants = {
-  regular: "bg-brand-main text-white disabled:hover:bg-brand-main",
+  regular: "bg-brand-dark text-white hover:bg-brand-main",
   outline:
-    "border border-brand-main text-brand-main hover:bg-brand-main hover:text-white disabled:border-brand-main disabled:bg-transparent disabled:hover:text-brand-main",
-  ghost: "text-brand-main disabled:hover:bg-transparent",
+    "border border-brand-main text-brand-main hover:bg-brand-main hover:text-white",
+  ghost: "text-brand-main",
   link: "text-brand-main hover:underline disabled:no-underline",
   "outline-white":
     "text-white border border-white hover:bg-brand-main hover:border-brand-main",
@@ -45,17 +45,18 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   size = "regular",
   variant = "regular",
-  shape = "regular",
+  shape = "sharp",
   center = false,
   ...props
 }) => {
   return (
     <button
       className={classNames(
-        "relative h-fit w-fit transition-all duration-300 ease-in-out",
-        "disabled:cursor-not-allowed disabled:opacity-50",
+        "relative h-fit transition-all duration-300 ease-in-out flex items-center space-x-2",
         sx,
         center && "left-1/2 -translate-x-1/2",
+        disabled &&
+          "disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-800 disabled:border-gray-600",
         Sizes[size],
         Variants[variant],
         Shapes[shape]

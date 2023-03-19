@@ -16,9 +16,9 @@ const Section = ({ children, sx = "", bottomPadding = false }: Props) => {
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
       className={classNames(
-        "global__container pt-24",
+        "global__container pt-32",
         sx,
-        bottomPadding && "pb-24"
+        bottomPadding && "pb-32"
       )}
     >
       {children}

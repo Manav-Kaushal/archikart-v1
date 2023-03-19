@@ -3,9 +3,20 @@ import React, { ReactNode } from "react";
 
 interface TypographyProps {
   children: ReactNode;
-  variant: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle" | "body";
+  variant?:
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "subtitle"
+    | "body"
+    | "bodySmall";
   sx?: string;
+  center?: boolean;
   capitalize?: boolean;
+  style?: any;
 }
 
 const VariantMapping = {
@@ -17,13 +28,15 @@ const VariantMapping = {
   h6: "h6",
   subtitle: "h5",
   body: "p",
+  bodySmall: "p",
   span: "span",
 };
 
 const Typography: React.FC<TypographyProps> = ({
   children,
-  variant,
-  sx,
+  variant = "body",
+  sx = "",
+  center = false,
   ...props
 }) => {
   const { capitalize } = props;
@@ -43,9 +56,11 @@ const Typography: React.FC<TypographyProps> = ({
       case "h6":
         return "text-base font-medium leading-tight";
       case "subtitle":
-        return "text-lg font-medium leading-tight text-gray-600";
+        return "text-lg font-medium leading-tight";
       case "body":
-        return "text-base font-normal leading-6";
+        return "text-base font-light leading-7";
+      case "bodySmall":
+        return "text-sm font-light leading-7";
       default:
         return "";
     }
@@ -55,7 +70,12 @@ const Typography: React.FC<TypographyProps> = ({
 
   return (
     <Component
-      className={classNames(getHeadingClass(), sx, capitalize && "capitalize")}
+      className={classNames(
+        getHeadingClass(),
+        sx,
+        center && "max-w-4xl mx-auto",
+        capitalize && "capitalize"
+      )}
       {...props}
     >
       {children}
