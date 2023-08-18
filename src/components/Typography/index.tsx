@@ -12,7 +12,8 @@ interface TypographyProps {
     | "h6"
     | "subtitle"
     | "body"
-    | "bodySmall";
+    | "bodySmall"
+    | "bodyXSmall";
   sx?: string;
   center?: boolean;
   capitalize?: boolean;
@@ -29,6 +30,7 @@ const VariantMapping = {
   subtitle: "h5",
   body: "p",
   bodySmall: "p",
+  bodyXSmall: "p",
   span: "span",
 };
 
@@ -37,10 +39,9 @@ const Typography: React.FC<TypographyProps> = ({
   variant = "body",
   sx = "",
   center = false,
+  capitalize = false,
   ...props
 }) => {
-  const { capitalize } = props;
-
   const getHeadingClass = () => {
     switch (variant) {
       case "h1":
@@ -61,6 +62,8 @@ const Typography: React.FC<TypographyProps> = ({
         return "text-base font-light leading-7";
       case "bodySmall":
         return "text-sm font-light leading-7";
+      case "bodyXSmall":
+        return "text-xs font-light leading-7";
       default:
         return "";
     }

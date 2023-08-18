@@ -35,7 +35,7 @@ const BlogCard = ({ data }: Props) => {
           />
         </div>
         <div className="p-4 border rounded-b-2xl">
-          <div className="flex items-center text-xs text-gray-500 gap-x-2">
+          <div className="flex items-center text-xs gray-500 text- gap-x-2">
             <TextWithIcon
               leftIcon={<CalendarIcon className="w-4 h-4" />}
               content={
@@ -73,7 +73,7 @@ const BlogCard = ({ data }: Props) => {
             </Typography>
           </div>
           <div className="flex items-center pt-6 mt-6 border-t gap-x-4 border-gray-900/5">
-            <div className="relative aspect-[1] w-10 ">
+            <div className="relative aspect-[1] w-12 ">
               <Image
                 src={
                   data.author.image
@@ -89,7 +89,10 @@ const BlogCard = ({ data }: Props) => {
               <Typography variant="bodySmall" sx="font-semibold text-gray-900">
                 {data.author.name}
               </Typography>
-              <Typography variant="bodySmall" sx="text-gray-400">
+              <Typography
+                variant="bodySmall"
+                sx="text-gray-400 text-xs leading-tight"
+              >
                 {data.author.role.title}
               </Typography>
             </div>

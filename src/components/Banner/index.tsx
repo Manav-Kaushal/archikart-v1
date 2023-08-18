@@ -42,11 +42,11 @@ const Banner = ({
         )}
       >
         {subTitle && (
-          <Typography variant="body" sx="tracking-widest" capitalize>
+          <Typography variant="body" sx="tracking-widest" capitalize={true}>
             {subTitle}
           </Typography>
         )}
-        <Typography variant={fullScreen ? "h1" : "h2"} capitalize>
+        <Typography variant={fullScreen ? "h1" : "h2"} capitalize={true}>
           {title}
         </Typography>
         {description && (

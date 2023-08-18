@@ -29,6 +29,7 @@ const Chip: React.FC<ChipProps> = ({
   size = "medium",
   type = "default",
   sx = "",
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onClick = () => {},
 }) => {
   return (

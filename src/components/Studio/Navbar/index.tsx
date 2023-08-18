@@ -2,8 +2,6 @@ import { ArrowUturnLeftIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import React from "react";
 
-type Props = {};
-
 const Navbar = (props: any) => {
   return (
     <div className="bg-[transparent]">

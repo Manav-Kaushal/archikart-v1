@@ -13,14 +13,12 @@ import { NextSeo } from "next-seo";
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
-
-const About = (props: Props) => {
+const About = (props: any) => {
   return (
     <>
-      <NextSeo title="About Us" />
+      <NextSeo title="About Archikart" />
       <Banner
-        title="About Us"
+        title="About Archikart"
         backgroundImage="https://images.pexels.com/photos/1915906/pexels-photo-1915906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       >
         <Breadcrumbs />
@@ -33,7 +31,9 @@ const About = (props: Props) => {
                 title={
                   <>
                     We Are The{" "}
-                    <span className="text-brand-main">World's Largest</span>{" "}
+                    <span className="text-brand-main">
+                      World&apos;s Largest
+                    </span>{" "}
                     University
                   </>
                 }
@@ -49,16 +49,18 @@ const About = (props: Props) => {
                 function, and beauty to create buildings that stand the test of
                 time.
               </Typography>
-              <Typography variant="body" sx="mt-4">
-                Whether it's a residential, commercial, or public project, we
-                are committed to excellence and delivering exceptional results
-                that exceed our clients' expectations. Join us on a journey to
-                transform spaces and inspire lives with great architecture.
+              <Typography variant="body" sx="mt-5">
+                Whether it&apos;s a residential, commercial, or public project,
+                we are committed to excellence and delivering exceptional
+                results that exceed our clients&apos; expectations. Join us on a
+                journey to transform spaces and inspire lives with great
+                architecture.
               </Typography>
               <Button
                 variant="outline"
                 shape="sharp"
                 size="small"
+                // eslint-disable-next-line @typescript-eslint/no-empty-function
                 onClick={() => {}}
                 sx="mt-8"
               >
@@ -92,7 +94,7 @@ const About = (props: Props) => {
                   id at vitae feugiat egestas ac. Diam nulla orci at in viverra
                   scelerisque eget. Eleifend egestas fringilla sapien.
                 </Typography>
-                <Typography variant="body" sx="mt-10">
+                <Typography variant="body" sx="mt-5">
                   Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget
                   risus enim. Mattis mauris semper sed amet vitae sed turpis id.
                   Id dolor praesent donec est. Odio penatibus risus viverra
@@ -141,9 +143,9 @@ const About = (props: Props) => {
           </div>
           <dl className="grid max-w-2xl grid-cols-1 gap-12 mx-auto mt-12 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">
             {values.map((value: ValueType) => (
-              <div key={value.name} className="flex relative pl-9 space-x-12">
+              <div key={value.name} className="relative flex space-x-12 pl-9">
                 <value.icon
-                  className="absolute w-16 h-16 text-brand-main top-1 left-1 bg-gray-100 rounded-lg p-2"
+                  className="absolute w-16 h-16 p-2 bg-gray-100 rounded-lg text-brand-main top-1 left-1"
                   aria-hidden="true"
                 />
                 <div>
@@ -212,7 +214,7 @@ const About = (props: Props) => {
           <SectionTitle title="Frequently asked questions" center />
           <div className="max-w-4xl mx-auto divide-y divide-gray-900/10">
             <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
-              {faqs.map((faq: FaqType) => (
+              {faqs.map((faq: FaqType, index) => (
                 <Disclosure as="div" key={faq.question} className="pt-6">
                   {({ open }) => (
                     <>
@@ -245,8 +247,10 @@ const About = (props: Props) => {
                         leaveFrom="transform scale-100 opacity-100"
                         leaveTo="transform scale-95 opacity-0"
                       >
-                        <Disclosure.Panel as="dd" className="pr-12 mt-2" static>
-                          <Typography variant="body">{faq.answer}</Typography>
+                        <Disclosure.Panel as="dd" className="px-4 mt-2" static>
+                          <Typography variant="bodySmall">
+                            {faq.answer}
+                          </Typography>
                         </Disclosure.Panel>
                       </Transition>
                     </>

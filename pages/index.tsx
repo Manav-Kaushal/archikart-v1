@@ -3,12 +3,7 @@ import Button from "@components/Button";
 import InputField from "@components/InputField";
 import Section from "@components/Section";
 import SectionTitle from "@components/SectionTitle";
-import {
-  ArrowRightIcon,
-  CheckCircleIcon,
-  EnvelopeIcon,
-  InformationCircleIcon,
-} from "@heroicons/react/24/solid";
+import { EnvelopeIcon, InformationCircleIcon } from "@heroicons/react/24/solid";
 import {
   section2Data,
   section3Data,
@@ -19,7 +14,6 @@ import {
   section3DataType,
   section4DataType,
 } from "@utils/types/homePage";
-import underline_1 from "@public/underline_1.svg";
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import { motion } from "framer-motion";
@@ -29,6 +23,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import BaseCard from "@components/Cards/BaseCard";
 import FullImageCard from "@components/Cards/FullImageCard";
 import ImageWithText from "@components/Cards/ImageWithText";
+import React from "react";
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -73,11 +68,11 @@ const Home: NextPage = () => {
         fullScreen
       >
         <div className="flex items-center justify-center mt-10 space-x-10 global__container">
-          <Button onClick={() => {}} size="large">
+          <Button size="large">
             <Typography variant="body">Create</Typography>
             <InformationCircleIcon className="w-5 h-5" />
           </Button>
-          <Button onClick={() => {}} size="large">
+          <Button size="large">
             <Typography variant="body">Contact</Typography>
             <ChevronRightIcon className="w-5 h-5" />
           </Button>
@@ -168,12 +163,7 @@ const Home: NextPage = () => {
         zeroPadding
       >
         <div className="mt-10 global__container">
-          <Button
-            onClick={() => {}}
-            variant="outline-white"
-            size="large"
-            center
-          >
+          <Button variant="outline-white" size="large">
             <Typography variant="body">Contact Us</Typography>
           </Button>
         </div>
@@ -198,12 +188,7 @@ Numquam adipisci harum hic ut, odit inventore similique incidunt?"
             shape="sharp"
             LeftIcon={EnvelopeIcon}
           />
-          <Button
-            onClick={() => {}}
-            variant="outline"
-            size="small"
-            shape="sharp"
-          >
+          <Button variant="outline" size="small" shape="sharp">
             <span>Subscribe</span>
           </Button>
         </div>

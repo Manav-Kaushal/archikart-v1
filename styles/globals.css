@@ -19,6 +19,7 @@ body {
 
 body {
   overflow-x: hidden;
+  font-weight: normal;
 }
 
 /* Custom Scrollbar */
@@ -79,5 +80,5 @@ body {
 
 /* Underline */
 .underline__1 {
-  @apply bg-bottom bg-no-repeat bg-contain bg-underline1;
+  @apply bg-bottom bg-no-repeat bg-contain bg-underline1 bottom-4;
 }

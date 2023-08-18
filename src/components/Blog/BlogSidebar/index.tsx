@@ -15,7 +15,7 @@ const BlogSidebar = ({ categories }: Props) => {
         {categories?.map((category) => (
           <div
             key={category.title}
-            className="flex items-center justify-between px-3 py-2 text-base font-medium text-gray-800 rounded-md cursor-pointer group hover:bg-gray-100"
+            className="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-800 rounded-md cursor-pointer group hover:bg-gray-100"
           >
             <span className="group-hover:text-brand-main transition__300">
               {category.title}

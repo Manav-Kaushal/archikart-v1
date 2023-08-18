@@ -7,13 +7,10 @@ type ButtonShapes = "regular" | "sharp" | "rounded";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  onClick: () => void;
   sx?: string;
-  disabled?: boolean;
   size?: ButtonSize;
   variant?: ButtonVariant;
   shape?: ButtonShapes;
-  center?: boolean;
 }
 
 const Sizes = {
@@ -39,30 +36,24 @@ const Shapes = {
 };
 
 const Button: React.FC<ButtonProps> = ({
-  onClick,
   children,
   sx = "",
-  disabled = false,
   size = "regular",
   variant = "regular",
   shape = "sharp",
-  center = false,
   ...props
 }) => {
+  const getBaseClasses = `relative h-fit transition-all duration-300 ease-in-out flex items-center space-x-2 disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-800 disabled:border-gray-600`;
+
   return (
     <button
       className={classNames(
-        "relative h-fit transition-all duration-300 ease-in-out flex items-center space-x-2",
-        sx,
-        center && "left-1/2 -translate-x-1/2",
-        disabled &&
-          "disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-800 disabled:border-gray-600",
+        getBaseClasses,
         Sizes[size],
         Variants[variant],
-        Shapes[shape]
+        Shapes[shape],
+        sx
       )}
-      onClick={onClick}
-      disabled={disabled}
       {...props}
     >
       {children}

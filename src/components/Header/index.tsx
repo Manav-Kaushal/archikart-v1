@@ -14,9 +14,7 @@ import useScroll from "@utils/hooks/useScroll";
 import Typography from "@components/Typography";
 import Button from "@components/Button";
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
   const router = useRouter();
   const { pathname } = router;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -26,8 +24,8 @@ const Header = (props: Props) => {
   return (
     <header
       className={classNames(
-        "fixed  top-0 left-0 w-full z-40 text-white transition__300 h-[90px]",
-        isShrunk ? "bg-black" : "bg-transparent"
+        "fixed  top-0 left-0 w-full z-40 text-white transition__300 ",
+        isShrunk ? "h-[70px] bg-black/90" : "h-[90px] bg-transparent"
       )}
     >
       <div className="global__container">
@@ -66,9 +64,8 @@ const Header = (props: Props) => {
               <Bars3Icon className="w-8 h-8" aria-hidden={true} />
             </button>
           </div>
+          
           {/* Mobile */}
-
-          {/* <div className="fixed inset-0 z-50" /> */}
           <div
             className={classNames(
               "md:hidden fixed inset-y-0 z-50 w-full overflow-y-auto bg-brand-main px-6 py-6 max-w-xs transition-all duration-200 ease-in-out",

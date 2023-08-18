@@ -5,11 +5,12 @@ type Props = {
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   content: ReactNode;
+  sx?: string;
 };
 
 const TextWithIcon = ({ leftIcon, rightIcon, content }: Props) => {
   return (
-    <Typography variant="bodySmall" sx="flex items-center space-x-2">
+    <Typography variant="bodySmall" sx="flex items-center space-x-2 text-xs">
       {leftIcon && leftIcon}
       <>{content}</>
       {rightIcon && rightIcon}

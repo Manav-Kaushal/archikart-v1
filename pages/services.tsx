@@ -9,9 +9,7 @@ import { section2DataType, section4DataType } from "@utils/types/homePage";
 import { NextSeo } from "next-seo";
 import React from "react";
 
-type Props = {};
-
-const Services = (props: Props) => {
+const Services = (props: any) => {
   return (
     <>
       <NextSeo title="Services" />

@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import BlogSidebar from "@components/Blog/BlogSidebar";
 import Button from "@components/Button";
 import { Category, Post } from "@utils/types/blog";
+import usePagination from "@utils/hooks/usePagination";
 
 type Props = {
   preview: boolean;
@@ -39,6 +40,11 @@ const categoriesQuery = groq`
 
 const Blog = ({ preview, posts, categories }: Props) => {
   const router = useRouter();
+
+  const { data, page, paginationComponent } = usePagination({
+    limit: 1,
+    preData: posts,
+  });
 
   if (preview) {
     return (
@@ -92,12 +98,13 @@ const Blog = ({ preview, posts, categories }: Props) => {
         <Section>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
             <div className="space-y-4 md:col-span-3">
-              <BlogList posts={posts} />
+              <BlogList posts={data} />
             </div>
             <aside>
               <BlogSidebar categories={categories} />
             </aside>
           </div>
+          {paginationComponent}
         </Section>
       </div>
     </>

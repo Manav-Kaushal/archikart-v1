@@ -17,8 +17,6 @@ import axios from "axios";
 import FormCard from "@components/Cards/FormCard";
 import Typography from "@components/Typography";
 
-type Props = {};
-
 type FormType = {
   name: string;
   email: string;
@@ -33,7 +31,7 @@ const initialFormState = {
   message: "",
 };
 
-const Contact = (props: Props) => {
+const Contact = (props: any) => {
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState<FormType>(initialFormState);
 
@@ -100,9 +98,10 @@ const Contact = (props: Props) => {
                   }
                 />
                 <Typography>
-                  Proin volutpat consequat porttitor cras nullam gravida at.
-                  Orci molestie a eu arcu. Sed ut tincidunt integer elementum id
-                  sem. Arcu sed malesuada et magna.
+                  If you have any inquiries or would like to discuss a potential
+                  project, please don&apos;t hesitate to get in touch. We look
+                  forward to working with you to bring your architectural dreams
+                  to life.
                 </Typography>
                 <dl className="mt-4 space-y-4">
                   <div className="flex gap-x-4">
@@ -208,6 +207,7 @@ const Contact = (props: Props) => {
                     shape="sharp"
                     size="small"
                     variant="outline"
+                    // eslint-disable-next-line @typescript-eslint/no-empty-function
                     onClick={() => {}}
                   >
                     Send Message

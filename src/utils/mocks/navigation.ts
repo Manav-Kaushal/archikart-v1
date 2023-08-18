@@ -26,8 +26,8 @@ export const navigation: Navigation[] = [
   //   title: "Contact",
   //   route: BasicRoutesEnum.Contact,
   // },
-  {
-    title: "Blog",
-    route: BasicRoutesEnum.Blog,
-  },
+  // {
+  //   title: "Blog",
+  //   route: BasicRoutesEnum.Blog,
+  // },
 ];

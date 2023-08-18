@@ -1,5 +1,6 @@
 import { classNames } from "@utils/helpers";
 import { ChangeEvent, HTMLAttributes } from "react";
+import React from "react";
 
 type SelectOption = {
   [key: string]: any;

@@ -5,6 +5,7 @@ import { DefaultSeo } from "next-seo";
 import Layout from "@components/Layout";
 import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import React from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

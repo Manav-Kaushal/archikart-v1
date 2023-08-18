@@ -4,8 +4,6 @@ import { app } from "@utils/config";
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
-
 const socialData = [
   {
     name: "Facebook",
@@ -25,22 +23,24 @@ const socialData = [
   },
 ];
 
-const Footer = (props: Props) => {
+const Footer = (props: any) => {
   return (
     <div className="py-12 mt-24 bg-brand-main/10">
       <div className="text-center global__container">
-        <div className="space-y-6">
-          <Typography variant="h5" sx="font-bold text-brand-main">
+        <div>
+          <Typography variant="h5" sx="font-bold  text-brand-main">
             About Us
           </Typography>
+          <div className="underline__1 pb-[30px] -mt-2"></div>
           <Typography
             variant="bodySmall"
-            sx="max-w-7xl mx-auto text-brand-grey"
+            sx="max-w-7xl mx-auto text-brand-grey mt-2"
           >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab harum
-            veniam similique ratione delectus necessitatibus, corporis deserunt
-            ea sunt numquam tenetur error laudantium rerum magni hic consectetur
-            ducimus praesentium nam!
+            We are passionate architects dedicated to creating exceptional
+            designs that inspire and enrich the lives of our clients. With a
+            deep understanding of the art and science of architecture, we strive
+            to create spaces that are not only aesthetically pleasing but also
+            functional, sustainable, and meaningful.
           </Typography>
         </div>
         <div className="flex items-center py-6 mx-auto space-x-6 w-fit">
